@@ -9,17 +9,15 @@
       
       
       
-        <link rel="prev" href="template.html">
+        <link rel="prev" href="plate.html">
       
-      
-        <link rel="next" href="plate_texture.html">
       
       <link rel="icon" href="../favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-9.1.3">
     
     
       
-        <title>GroundPlateの設置 - Isaac SIM Docs</title>
+        <title>PlateにTexture - Isaac SIM Docs</title>
       
     
     
@@ -73,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#groundplate" class="md-skip">
+        <a href="#groundplatetexture" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -108,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GroundPlateの設置
+              PlateにTexture
             
           </span>
         </div>
@@ -217,6 +215,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="plate.html" class="md-nav__link">
+        GroundPlateの設置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -229,12 +241,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          GroundPlateの設置
+          PlateにTexture
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="plate.html" class="md-nav__link md-nav__link--active">
-        GroundPlateの設置
+      <a href="plate_texture.html" class="md-nav__link md-nav__link--active">
+        PlateにTexture
       </a>
       
         
@@ -253,21 +265,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#groundplate_1" class="md-nav__link">
-    GroundPlate
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#physicsutilsadd_ground_plane" class="md-nav__link">
-    physicsUtils.add_ground_plane
+  <a href="#preview" class="md-nav__link">
+    Preview
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    ソースコード
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     リソース
   </a>
   
@@ -277,20 +289,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="plate_texture.html" class="md-nav__link">
-        PlateにTexture
-      </a>
     </li>
   
 
@@ -329,21 +327,21 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#groundplate_1" class="md-nav__link">
-    GroundPlate
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#physicsutilsadd_ground_plane" class="md-nav__link">
-    physicsUtils.add_ground_plane
+  <a href="#preview" class="md-nav__link">
+    Preview
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    ソースコード
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     リソース
   </a>
   
@@ -364,8 +362,10 @@
                   
 
 
-<h1 id="groundplate">GroundPlateの設置</h1>
-<h2 id="groundplate_1">GroundPlate</h2>
+<h1 id="groundplatetexture">GroundPlateにTextureを配置</h1>
+<h2 id="preview">Preview</h2>
+<p><img alt="" src="img/plane_texture.png" /></p>
+<h2 id="_1">ソースコード</h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
@@ -470,15 +470,33 @@
 <span class="normal">102</span>
 <span class="normal">103</span>
 <span class="normal">104</span>
-<span class="normal">105</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">omni.timeline</span>
 <span class="kn">import</span> <span class="nn">omni.ui</span> <span class="k">as</span> <span class="nn">ui</span>
 <span class="kn">from</span> <span class="nn">omni.isaac.ui.element_wrappers</span> <span class="kn">import</span> <span class="n">CollapsableFrame</span><span class="p">,</span> <span class="n">DropDown</span><span class="p">,</span> <span class="n">FloatField</span><span class="p">,</span> <span class="n">TextBlock</span>
 <span class="kn">from</span> <span class="nn">omni.isaac.ui.ui_utils</span> <span class="kn">import</span> <span class="n">get_style</span>
 <span class="kn">from</span> <span class="nn">omni.isaac.ui.element_wrappers</span> <span class="kn">import</span> <span class="n">Button</span>
-<span class="hll"><span class="kn">from</span> <span class="nn">pxr</span> <span class="kn">import</span> <span class="n">Gf</span>
-</span><span class="hll"><span class="kn">from</span> <span class="nn">omni.physx.scripts</span> <span class="kn">import</span> <span class="n">physicsUtils</span>
-</span><span class="kn">import</span> <span class="nn">omni.usd</span>
+<span class="kn">from</span> <span class="nn">pxr</span> <span class="kn">import</span> <span class="n">Gf</span>
+<span class="kn">from</span> <span class="nn">omni.physx.scripts</span> <span class="kn">import</span> <span class="n">physicsUtils</span>
+<span class="kn">import</span> <span class="nn">omni.usd</span>
 
 <span class="k">class</span> <span class="nc">UIBuilder</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -542,81 +560,59 @@
         <span class="k">for</span> <span class="n">ui_elem</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapped_ui_elements</span><span class="p">:</span>
             <span class="n">ui_elem</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
 
-<span class="hll">    <span class="k">def</span> <span class="nf">build_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span class="hll"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span class="hll"><span class="sd">        カスタムUIツールを構築して、拡張機能を実行します。</span>
-</span><span class="hll"><span class="sd">        この関数は、UIウィンドウが閉じて再度開かれるたびに呼び出されます。</span>
-</span><span class="hll"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span class="hll">        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;build_ui&quot;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">build_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        カスタムUIツールを構築して、拡張機能を実行します。</span>
+<span class="sd">        この関数は、UIウィンドウが閉じて再度開かれるたびに呼び出されます。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;build_ui&quot;</span><span class="p">)</span>
+
+        <span class="c1"># ボタンUIの作成</span>
+        <span class="n">object_map</span> <span class="o">=</span> <span class="n">CollapsableFrame</span><span class="p">(</span><span class="s2">&quot;Object Controls&quot;</span><span class="p">,</span> <span class="n">collapsed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">object_map</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">ui</span><span class="o">.</span><span class="n">VStack</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="n">get_style</span><span class="p">(),</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+                <span class="k">with</span> <span class="n">ui</span><span class="o">.</span><span class="n">VStack</span><span class="p">():</span>
+                    <span class="n">grandplate_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span>
+                        <span class="s2">&quot;Ground plane&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;SET&quot;</span><span class="p">,</span>
+                        <span class="n">on_click_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_on_set_groudplane</span><span class="p">,</span>
+                    <span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">wrapped_ui_elements</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">grandplate_button</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">_on_set_groudplane</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ボタンが押されたら呼ばれる</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># シーンを取得</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stage</span> <span class="o">=</span> <span class="n">omni</span><span class="o">.</span><span class="n">usd</span><span class="o">.</span><span class="n">get_context</span><span class="p">()</span><span class="o">.</span><span class="n">get_stage</span><span class="p">()</span>
+        <span class="c1"># GroundPlaneを追加</span>
+        <span class="n">physicsUtils</span><span class="o">.</span><span class="n">add_ground_plane</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="p">,</span> <span class="s2">&quot;/World/GroundPlane&quot;</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">,</span> <span class="n">Gf</span><span class="o">.</span><span class="n">Vec3f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Gf</span><span class="o">.</span><span class="n">Vec3f</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+
+<span class="hll">        <span class="c1"># Materialを作成</span>
+</span><span class="hll">        <span class="n">mtl_path</span> <span class="o">=</span> <span class="n">Sdf</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/World/Looks/OmniPBR&quot;</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">mtl</span> <span class="o">=</span> <span class="n">UsdShade</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="p">,</span> <span class="n">mtl_path</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">shader</span> <span class="o">=</span> <span class="n">UsdShade</span><span class="o">.</span><span class="n">Shader</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="p">,</span> <span class="n">mtl_path</span><span class="o">.</span><span class="n">AppendPath</span><span class="p">(</span><span class="s2">&quot;Shader&quot;</span><span class="p">))</span>
+</span><span class="hll">        <span class="n">shader</span><span class="o">.</span><span class="n">CreateImplementationSourceAttr</span><span class="p">(</span><span class="n">UsdShade</span><span class="o">.</span><span class="n">Tokens</span><span class="o">.</span><span class="n">sourceAsset</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">shader</span><span class="o">.</span><span class="n">SetSourceAsset</span><span class="p">(</span><span class="s2">&quot;OmniPBR.mdl&quot;</span><span class="p">,</span> <span class="s2">&quot;mdl&quot;</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">shader</span><span class="o">.</span><span class="n">SetSourceAssetSubIdentifier</span><span class="p">(</span><span class="s2">&quot;OmniPBR&quot;</span><span class="p">,</span> <span class="s2">&quot;mdl&quot;</span><span class="p">)</span>
+</span><span class="hll">        <span class="c1"># NUCLEUSサーバからTextureを取得</span>
+</span><span class="hll">        <span class="n">shader</span><span class="o">.</span><span class="n">CreateInput</span><span class="p">(</span><span class="s1">&#39;diffuse_texture&#39;</span><span class="p">,</span> <span class="n">Sdf</span><span class="o">.</span><span class="n">ValueTypeNames</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s2">&quot;omniverse://localhost/NVIDIA/Assets/Terrain/105/materials/textures/blue.png&quot;</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">mtl</span><span class="o">.</span><span class="n">CreateSurfaceOutput</span><span class="p">(</span><span class="s2">&quot;mdl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ConnectToSource</span><span class="p">(</span><span class="n">shader</span><span class="o">.</span><span class="n">ConnectableAPI</span><span class="p">(),</span> <span class="s2">&quot;out&quot;</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">mtl</span><span class="o">.</span><span class="n">CreateDisplacementOutput</span><span class="p">(</span><span class="s2">&quot;mdl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ConnectToSource</span><span class="p">(</span><span class="n">shader</span><span class="o">.</span><span class="n">ConnectableAPI</span><span class="p">(),</span> <span class="s2">&quot;out&quot;</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">mtl</span><span class="o">.</span><span class="n">CreateVolumeOutput</span><span class="p">(</span><span class="s2">&quot;mdl&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ConnectToSource</span><span class="p">(</span><span class="n">shader</span><span class="o">.</span><span class="n">ConnectableAPI</span><span class="p">(),</span> <span class="s2">&quot;out&quot;</span><span class="p">)</span>
 </span><span class="hll">
-</span><span class="hll">        <span class="c1"># ボタンUIの作成</span>
-</span><span class="hll">        <span class="n">object_map</span> <span class="o">=</span> <span class="n">CollapsableFrame</span><span class="p">(</span><span class="s2">&quot;Object Controls&quot;</span><span class="p">,</span> <span class="n">collapsed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span class="hll">        <span class="c1"># GroundPlaneのパスを取得</span>
+</span><span class="hll">        <span class="n">ground_plane</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="o">.</span><span class="n">GetPrimAtPath</span><span class="p">(</span><span class="s2">&quot;/World/GroundPlane&quot;</span><span class="p">)</span>
 </span><span class="hll">
-</span><span class="hll">        <span class="k">with</span> <span class="n">object_map</span><span class="p">:</span>
-</span><span class="hll">            <span class="k">with</span> <span class="n">ui</span><span class="o">.</span><span class="n">VStack</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="n">get_style</span><span class="p">(),</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-</span><span class="hll">                <span class="k">with</span> <span class="n">ui</span><span class="o">.</span><span class="n">VStack</span><span class="p">():</span>
-</span><span class="hll">                    <span class="n">grandplate_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span>
-</span><span class="hll">                        <span class="s2">&quot;Ground plane&quot;</span><span class="p">,</span>
-</span><span class="hll">                        <span class="s2">&quot;SET&quot;</span><span class="p">,</span>
-</span><span class="hll">                        <span class="n">on_click_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_on_set_groudplane</span><span class="p">,</span>
-</span><span class="hll">                    <span class="p">)</span>
-</span><span class="hll">
-</span><span class="hll">                <span class="bp">self</span><span class="o">.</span><span class="n">wrapped_ui_elements</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">grandplate_button</span><span class="p">])</span>
-</span>
-<span class="hll">    <span class="k">def</span> <span class="nf">_on_set_groudplane</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span class="hll"><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span class="hll"><span class="sd">        ボタンが押されたら呼ばれる</span>
-</span><span class="hll"><span class="sd">        &quot;&quot;&quot;</span>
-</span><span class="hll">        <span class="c1"># シーンを取得</span>
-</span><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">stage</span> <span class="o">=</span> <span class="n">omni</span><span class="o">.</span><span class="n">usd</span><span class="o">.</span><span class="n">get_context</span><span class="p">()</span><span class="o">.</span><span class="n">get_stage</span><span class="p">()</span>
-</span><span class="hll">
-</span><span class="hll">        <span class="c1"># GroundPlaneを追加</span>
-</span><span class="hll">        <span class="n">physicsUtils</span><span class="o">.</span><span class="n">add_ground_plane</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="p">,</span> <span class="s2">&quot;/World/GroundPlane&quot;</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">,</span> <span class="n">Gf</span><span class="o">.</span><span class="n">Vec3f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">Gf</span><span class="o">.</span><span class="n">Vec3f</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
+</span><span class="hll">        <span class="c1"># MaterialをGroundPlaneにBind</span>
+</span><span class="hll">        <span class="n">UsdShade</span><span class="o">.</span><span class="n">MaterialBindingAPI</span><span class="p">(</span><span class="n">ground_plane</span><span class="p">)</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">mtl</span><span class="p">)</span>
 </span>
     <span class="k">def</span> <span class="nf">_on_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;_on_init&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="physicsutilsadd_ground_plane">physicsUtils.add_ground_plane</h2>
-<p>GroundPlaneを設置すると、物理シーンやリジッドボディ（剛体）も設定される</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># GroundPlaneを追加</span>
-<span class="n">physicsUtils</span><span class="o">.</span><span class="n">add_ground_plane</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="p">,</span> <span class="s2">&quot;/World/GroundPlane&quot;</span><span class="p">,</span> <span class="s2">&quot;Z&quot;</span><span class="p">,</span> <span class="mf">25.0</span><span class="p">,</span> <span class="n">Gf</span><span class="o">.</span><span class="n">Vec3f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">Gf</span><span class="o">.</span><span class="n">Vec3f</span><span class="p">(</span><span class="mf">0.5</span><span class="p">))</span>
-</code></pre></div></td></tr></table></div>
-<table>
-<thead>
-<tr>
-<th align="left">引数</th>
-<th align="left">概要</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">ステージ</td>
-<td align="left">取得したステージ</td>
-</tr>
-<tr>
-<td align="left">prim名</td>
-<td align="left">/groundPlane</td>
-</tr>
-<tr>
-<td align="left">軸の向き</td>
-<td align="left">グラウンドプレーンの法線方向を指定します。通常、重力が下向きに作用するため、基本Z軸方向に設定</td>
-</tr>
-<tr>
-<td align="left">Size</td>
-<td align="left">Planeの大きさ</td>
-</tr>
-<tr>
-<td align="left">設置座標</td>
-<td align="left">Gf.Vec3f(0, 0, 0)</td>
-</tr>
-<tr>
-<td align="left">サイズ?</td>
-<td align="left">Gf.Vec3f(0.5)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_1">リソース</h2>
+<h2 id="_2">リソース</h2>
 <ul>
 <li><a href="https://docs.omniverse.nvidia.com/kit/docs/omni_physics/104.0/source/extensions/omni.physx.commands/docs/index.html">https://docs.omniverse.nvidia.com/kit/docs/omni_physics/104.0/source/extensions/omni.physx.commands/docs/index.html</a></li>
 </ul>
