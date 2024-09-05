@@ -847,29 +847,29 @@
         <span class="c1"># コライダーを追加</span>
         <span class="n">UsdPhysics</span><span class="o">.</span><span class="n">CollisionAPI</span><span class="o">.</span><span class="n">Apply</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">GetPrim</span><span class="p">())</span>
 
-<span class="hll">        <span class="c1"># 反射のないクリスタルのような色情報を追加</span>
-</span><span class="hll">        <span class="n">material_path</span> <span class="o">=</span> <span class="n">Sdf</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/World/Materials/NonReflectiveCrystalMaterial&quot;</span><span class="p">)</span>
-</span><span class="hll">        <span class="n">material_prim</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="n">GetPrimAtPath</span><span class="p">(</span><span class="n">material_path</span><span class="p">)</span>
-</span><span class="hll">
-</span><span class="hll">        <span class="k">if</span> <span class="ow">not</span> <span class="n">material_prim</span><span class="o">.</span><span class="n">IsValid</span><span class="p">():</span>
-</span><span class="hll">            <span class="n">material</span> <span class="o">=</span> <span class="n">UsdShade</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="n">stage</span><span class="p">,</span> <span class="n">material_path</span><span class="p">)</span>
-</span><span class="hll">            <span class="n">pbr_shader</span> <span class="o">=</span> <span class="n">UsdShade</span><span class="o">.</span><span class="n">Shader</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="n">stage</span><span class="p">,</span> <span class="n">material_path</span><span class="o">.</span><span class="n">AppendPath</span><span class="p">(</span><span class="s2">&quot;PBRShader&quot;</span><span class="p">))</span>
-</span><span class="hll">            <span class="n">pbr_shader</span><span class="o">.</span><span class="n">CreateIdAttr</span><span class="p">(</span><span class="s2">&quot;UsdPreviewSurface&quot;</span><span class="p">)</span>
-</span><span class="hll">
-</span><span class="hll">            <span class="c1"># 透明度と赤色に設定</span>
-</span><span class="hll">            <span class="n">pbr_shader</span><span class="o">.</span><span class="n">CreateInput</span><span class="p">(</span><span class="s2">&quot;diffuseColor&quot;</span><span class="p">,</span> <span class="n">Sdf</span><span class="o">.</span><span class="n">ValueTypeNames</span><span class="o">.</span><span class="n">Color3f</span><span class="p">)</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">Gf</span><span class="o">.</span><span class="n">Vec3f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
-</span><span class="hll">
-</span><span class="hll">            <span class="c1"># 透過率を10%に設定</span>
+        <span class="c1"># 反射のないクリスタルのような色情報を追加</span>
+        <span class="n">material_path</span> <span class="o">=</span> <span class="n">Sdf</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/World/Materials/NonReflectiveCrystalMaterial&quot;</span><span class="p">)</span>
+        <span class="n">material_prim</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="n">GetPrimAtPath</span><span class="p">(</span><span class="n">material_path</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">material_prim</span><span class="o">.</span><span class="n">IsValid</span><span class="p">():</span>
+            <span class="n">material</span> <span class="o">=</span> <span class="n">UsdShade</span><span class="o">.</span><span class="n">Material</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="n">stage</span><span class="p">,</span> <span class="n">material_path</span><span class="p">)</span>
+            <span class="n">pbr_shader</span> <span class="o">=</span> <span class="n">UsdShade</span><span class="o">.</span><span class="n">Shader</span><span class="o">.</span><span class="n">Define</span><span class="p">(</span><span class="n">stage</span><span class="p">,</span> <span class="n">material_path</span><span class="o">.</span><span class="n">AppendPath</span><span class="p">(</span><span class="s2">&quot;PBRShader&quot;</span><span class="p">))</span>
+            <span class="n">pbr_shader</span><span class="o">.</span><span class="n">CreateIdAttr</span><span class="p">(</span><span class="s2">&quot;UsdPreviewSurface&quot;</span><span class="p">)</span>
+
+            <span class="c1"># 透明度と赤色に設定</span>
+            <span class="n">pbr_shader</span><span class="o">.</span><span class="n">CreateInput</span><span class="p">(</span><span class="s2">&quot;diffuseColor&quot;</span><span class="p">,</span> <span class="n">Sdf</span><span class="o">.</span><span class="n">ValueTypeNames</span><span class="o">.</span><span class="n">Color3f</span><span class="p">)</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">Gf</span><span class="o">.</span><span class="n">Vec3f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+
+<span class="hll">            <span class="c1"># 透過率を10%に設定</span>
 </span><span class="hll">            <span class="n">pbr_shader</span><span class="o">.</span><span class="n">CreateInput</span><span class="p">(</span><span class="s2">&quot;opacity&quot;</span><span class="p">,</span> <span class="n">Sdf</span><span class="o">.</span><span class="n">ValueTypeNames</span><span class="o">.</span><span class="n">Float</span><span class="p">)</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 </span><span class="hll">
 </span><span class="hll">            <span class="c1"># シェーダーをマテリアルに適用</span>
 </span><span class="hll">            <span class="n">material</span><span class="o">.</span><span class="n">CreateSurfaceOutput</span><span class="p">()</span><span class="o">.</span><span class="n">ConnectToSource</span><span class="p">(</span><span class="n">pbr_shader</span><span class="o">.</span><span class="n">ConnectableAPI</span><span class="p">(),</span> <span class="s2">&quot;surface&quot;</span><span class="p">)</span>
 </span><span class="hll">
 </span><span class="hll">        <span class="c1"># Cubeにマテリアルをバインド</span>
-</span>        <span class="n">UsdShade</span><span class="o">.</span><span class="n">MaterialBindingAPI</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">GetPrim</span><span class="p">())</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">material</span><span class="p">)</span>
-
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cube </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">GetPath</span><span class="p">()</span><span class="si">}</span><span class="s2"> に剛体と反射のないクリスタルのような赤色、10%の透過率が追加されました&quot;</span><span class="p">)</span>
-
+</span><span class="hll">        <span class="n">UsdShade</span><span class="o">.</span><span class="n">MaterialBindingAPI</span><span class="p">(</span><span class="n">cube</span><span class="o">.</span><span class="n">GetPrim</span><span class="p">())</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">material</span><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cube </span><span class="si">{</span><span class="n">cube</span><span class="o">.</span><span class="n">GetPath</span><span class="p">()</span><span class="si">}</span><span class="s2"> に剛体と反射のないクリスタルのような赤色、10%の透過率が追加されました&quot;</span><span class="p">)</span>
+</span>
         <span class="c1"># 画面を更新して表示</span>
         <span class="n">omni</span><span class="o">.</span><span class="n">usd</span><span class="o">.</span><span class="n">get_context</span><span class="p">()</span><span class="o">.</span><span class="n">get_stage_view</span><span class="p">()</span><span class="o">.</span><span class="n">invalidate</span><span class="p">()</span>
 
