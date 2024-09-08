@@ -847,13 +847,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#object" class="md-nav__link">
-    Objectの回転
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -986,13 +979,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#object" class="md-nav__link">
-    Objectの回転
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1015,60 +1001,17 @@
 <p>Fusion360に、 https://github.com/syuntoku14/fusion2urdf を事前にいれておく</p>
 <p><img alt="" src="img/urdf002.png" /></p>
 <p><img alt="" src="img/urdf003.png" /></p>
+<p>Fusion360の座標軸と変換後のＵＳＤの座標軸をわせるために、下記向きで調整する</p>
+<p><img alt="" src="img/urdf005.png" /></p>
+<p><img alt="" src="./img/urdf006.png" /></p>
 <p>ROS2形式で出力</p>
-<p><img alt="" src="./img/urdf004.png" /></p>
+<p><img alt="" src="img/urdf004.png" /></p>
 <h2 id="ros2urdf">ROS2でURDFに変換</h2>
 <p>Fusion360からはXacro形式で出力されるので、ROS2(Foxy)でURDF形式で出力する。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/ubuntu/ros2/src/akabeko_description/urdf/
 ros2<span class="w"> </span>run<span class="w"> </span>xacro<span class="w"> </span>xacro<span class="w"> </span>-o<span class="w"> </span>akabeko.urdf<span class="w"> </span>akabeko.xacro
 </code></pre></div></td></tr></table></div>
-<h2 id="object">Objectの回転</h2>
-<p>初期位置が90度回転されてしまう場合は、Xacroファイルを変換前に回転させる。</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;base_link&quot;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;inertial&gt;</span>
-<span class="hll"><span class="w">    </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0.0008107994550741974 0.16765726961656927 0.03622130976520759&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;1.5708 0 0&quot;</span><span class="nt">/&gt;</span>
-</span><span class="w">    </span><span class="nt">&lt;mass</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0.67550267971129&quot;</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;inertia</span><span class="w"> </span><span class="na">ixx=</span><span class="s">&quot;0.006307&quot;</span><span class="w"> </span><span class="na">iyy=</span><span class="s">&quot;0.006995&quot;</span><span class="w"> </span><span class="na">izz=</span><span class="s">&quot;0.001906&quot;</span><span class="w"> </span><span class="na">ixy=</span><span class="s">&quot;-1.6e-05&quot;</span><span class="w"> </span><span class="na">iyz=</span><span class="s">&quot;-0.000158&quot;</span><span class="w"> </span><span class="na">ixz=</span><span class="s">&quot;1.7e-05&quot;</span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/inertial&gt;</span>
-<span class="w">  </span><span class="nt">&lt;visual&gt;</span>
-<span class="hll"><span class="w">    </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;1.5708 0 0&quot;</span><span class="nt">/&gt;</span>
-</span><span class="w">    </span><span class="nt">&lt;geometry&gt;</span>
-<span class="w">      </span><span class="nt">&lt;mesh</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;package://jetdog_description/meshes/base_link.stl&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;0.001 0.001 0.001&quot;</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/geometry&gt;</span>
-<span class="w">    </span><span class="nt">&lt;material</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;paint_enamel_glossy_red&quot;</span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/visual&gt;</span>
-<span class="w">  </span><span class="nt">&lt;collision&gt;</span>
-<span class="hll"><span class="w">    </span><span class="nt">&lt;origin</span><span class="w"> </span><span class="na">xyz=</span><span class="s">&quot;0 0 0&quot;</span><span class="w"> </span><span class="na">rpy=</span><span class="s">&quot;1.5708 0 0&quot;</span><span class="nt">/&gt;</span>
-</span><span class="w">    </span><span class="nt">&lt;geometry&gt;</span>
-<span class="w">      </span><span class="nt">&lt;mesh</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;package://jetdog_description/meshes/base_link.stl&quot;</span><span class="w"> </span><span class="na">scale=</span><span class="s">&quot;0.001 0.001 0.001&quot;</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;/geometry&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/collision&gt;</span>
-<span class="nt">&lt;/link&gt;</span>
-</code></pre></div></td></tr></table></div>
-<p>jointを除く、すべてのオブジェクトに対して</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>rpy=&quot;1.5708 0 0&quot;
-</code></pre></div></td></tr></table></div>
-<p>で回転させる</p>
 
 
 
