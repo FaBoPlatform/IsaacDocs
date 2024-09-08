@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../fusion360/usd.html">
+        <link rel="prev" href="humanoid.html">
       
       
-        <link rel="next" href="humanoid.html">
+        <link rel="next" href="bipeds.html">
       
       <link rel="icon" href="../favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-9.1.3">
     
     
       
-        <title>quadruredsサンプル - Isaac SIM Docs</title>
+        <title>armサンプル - Isaac SIM Docs</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quadrureds" class="md-skip">
+        <a href="#arm" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              quadruredsサンプル
+              armサンプル
             
           </span>
         </div>
@@ -861,6 +861,34 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="quadrureds.html" class="md-nav__link">
+        quadruredsサンプル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="humanoid.html" class="md-nav__link">
+        humanoidサンプル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -873,12 +901,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          quadruredsサンプル
+          armサンプル
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="quadrureds.html" class="md-nav__link md-nav__link--active">
-        quadruredsサンプル
+      <a href="arm.html" class="md-nav__link md-nav__link--active">
+        armサンプル
       </a>
       
         
@@ -911,8 +939,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quadruredspy" class="md-nav__link">
-    ソースコード(quadrureds.py)
+  <a href="#bipedspy" class="md-nav__link">
+    ソースコード(bipeds.py)
   </a>
   
 </li>
@@ -928,34 +956,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="humanoid.html" class="md-nav__link">
-        humanoidサンプル
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="arm.html" class="md-nav__link">
-        armサンプル
-      </a>
     </li>
   
 
@@ -1050,8 +1050,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quadruredspy" class="md-nav__link">
-    ソースコード(quadrureds.py)
+  <a href="#bipedspy" class="md-nav__link">
+    ソースコード(bipeds.py)
   </a>
   
 </li>
@@ -1078,13 +1078,13 @@
                   
 
 
-<h1 id="quadrureds">quadruredsサンプル</h1>
+<h1 id="arm">armサンプル</h1>
 <h2 id="preview">Preview</h2>
-<p><img alt="" src="img/quadrureds.png" /></p>
+<p><img alt="" src="./img/arm.png" /></p>
 <h2 id="_1">起動コマンド</h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./isaaclab.bat<span class="w"> </span>-p<span class="w"> </span>source/standalone/demos/quadrupeds.py
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>./isaaclab.bat<span class="w"> </span>-p<span class="w"> </span>source/standalone/demos/arm.py
 </code></pre></div></td></tr></table></div>
-<h2 id="quadruredspy">ソースコード(quadrureds.py)</h2>
+<h2 id="bipedspy">ソースコード(bipeds.py)</h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
@@ -1277,18 +1277,57 @@
 <span class="normal">190</span>
 <span class="normal">191</span>
 <span class="normal">192</span>
-<span class="normal">193</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Copyright (c) 2022-2024, The Isaac Lab Project Developers.</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Copyright (c) 2022-2024, The Isaac Lab Project Developers.</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
 <span class="c1"># SPDX-License-Identifier: BSD-3-Clause</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">This script demonstrates different legged robots.</span>
+<span class="sd">This script demonstrates different single-arm manipulators.</span>
 
 <span class="sd">.. code-block:: bash</span>
 
 <span class="sd">    # Usage</span>
-<span class="sd">    ./isaaclab.sh -p source/standalone/demos/quadrupeds.py</span>
+<span class="sd">    ./isaaclab.sh -p source/standalone/demos/arms.py</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -1299,7 +1338,7 @@
 <span class="kn">from</span> <span class="nn">omni.isaac.lab.app</span> <span class="kn">import</span> <span class="n">AppLauncher</span>
 
 <span class="c1"># add argparse arguments</span>
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;This script demonstrates different legged robots.&quot;</span><span class="p">)</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;This script demonstrates different single-arm manipulators.&quot;</span><span class="p">)</span>
 <span class="c1"># append AppLauncher cli args</span>
 <span class="n">AppLauncher</span><span class="o">.</span><span class="n">add_app_launcher_args</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span>
 <span class="c1"># parse the arguments</span>
@@ -1318,13 +1357,22 @@
 
 <span class="kn">import</span> <span class="nn">omni.isaac.lab.sim</span> <span class="k">as</span> <span class="nn">sim_utils</span>
 <span class="kn">from</span> <span class="nn">omni.isaac.lab.assets</span> <span class="kn">import</span> <span class="n">Articulation</span>
+<span class="kn">from</span> <span class="nn">omni.isaac.lab.utils.assets</span> <span class="kn">import</span> <span class="n">ISAAC_NUCLEUS_DIR</span>
 
 <span class="c1">##</span>
 <span class="c1"># Pre-defined configs</span>
 <span class="c1">##</span>
-<span class="kn">from</span> <span class="nn">omni.isaac.lab_assets.anymal</span> <span class="kn">import</span> <span class="n">ANYMAL_B_CFG</span><span class="p">,</span> <span class="n">ANYMAL_C_CFG</span><span class="p">,</span> <span class="n">ANYMAL_D_CFG</span>  <span class="c1"># isort:skip</span>
-<span class="kn">from</span> <span class="nn">omni.isaac.lab_assets.spot</span> <span class="kn">import</span> <span class="n">SPOT_CFG</span>  <span class="c1"># isort:skip</span>
-<span class="kn">from</span> <span class="nn">omni.isaac.lab_assets.unitree</span> <span class="kn">import</span> <span class="n">UNITREE_A1_CFG</span><span class="p">,</span> <span class="n">UNITREE_GO1_CFG</span><span class="p">,</span> <span class="n">UNITREE_GO2_CFG</span>  <span class="c1"># isort:skip</span>
+<span class="c1"># isort: off</span>
+<span class="kn">from</span> <span class="nn">omni.isaac.lab_assets</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">FRANKA_PANDA_CFG</span><span class="p">,</span>
+    <span class="n">UR10_CFG</span><span class="p">,</span>
+    <span class="n">KINOVA_JACO2_N7S300_CFG</span><span class="p">,</span>
+    <span class="n">KINOVA_JACO2_N6S300_CFG</span><span class="p">,</span>
+    <span class="n">KINOVA_GEN3_N7_CFG</span><span class="p">,</span>
+    <span class="n">SAWYER_CFG</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># isort: on</span>
 
 
 <span class="k">def</span> <span class="nf">define_origins</span><span class="p">(</span><span class="n">num_origins</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">spacing</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]:</span>
@@ -1332,8 +1380,8 @@
     <span class="c1"># create tensor based on number of environments</span>
     <span class="n">env_origins</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_origins</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
     <span class="c1"># create a grid of origins</span>
-    <span class="n">num_cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num_origins</span><span class="p">))</span>
-    <span class="n">num_rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">num_origins</span> <span class="o">/</span> <span class="n">num_cols</span><span class="p">)</span>
+    <span class="n">num_rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">num_origins</span><span class="p">))</span>
+    <span class="n">num_cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">num_origins</span> <span class="o">/</span> <span class="n">num_rows</span><span class="p">)</span>
     <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_rows</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_cols</span><span class="p">),</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">)</span>
     <span class="n">env_origins</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">spacing</span> <span class="o">*</span> <span class="n">xx</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:</span><span class="n">num_origins</span><span class="p">]</span> <span class="o">-</span> <span class="n">spacing</span> <span class="o">*</span> <span class="p">(</span><span class="n">num_rows</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
     <span class="n">env_origins</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">spacing</span> <span class="o">*</span> <span class="n">yy</span><span class="o">.</span><span class="n">flatten</span><span class="p">()[:</span><span class="n">num_origins</span><span class="p">]</span> <span class="o">-</span> <span class="n">spacing</span> <span class="o">*</span> <span class="p">(</span><span class="n">num_cols</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
@@ -1353,52 +1401,80 @@
 
     <span class="c1"># Create separate groups called &quot;Origin1&quot;, &quot;Origin2&quot;, &quot;Origin3&quot;</span>
     <span class="c1"># Each group will have a mount and a robot on top of it</span>
-    <span class="n">origins</span> <span class="o">=</span> <span class="n">define_origins</span><span class="p">(</span><span class="n">num_origins</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mf">1.25</span><span class="p">)</span>
+    <span class="n">origins</span> <span class="o">=</span> <span class="n">define_origins</span><span class="p">(</span><span class="n">num_origins</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 
-    <span class="c1"># Origin 1 with Anymal B</span>
+    <span class="c1"># Origin 1 with Franka Panda</span>
     <span class="n">prim_utils</span><span class="o">.</span><span class="n">create_prim</span><span class="p">(</span><span class="s2">&quot;/World/Origin1&quot;</span><span class="p">,</span> <span class="s2">&quot;Xform&quot;</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="n">origins</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="c1"># -- Table</span>
+    <span class="n">cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">UsdFileCfg</span><span class="p">(</span><span class="n">usd_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ISAAC_NUCLEUS_DIR</span><span class="si">}</span><span class="s2">/Props/Mounts/SeattleLabTable/table_instanceable.usd&quot;</span><span class="p">)</span>
+    <span class="n">cfg</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Origin1/Table&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">))</span>
     <span class="c1"># -- Robot</span>
-    <span class="n">anymal_b</span> <span class="o">=</span> <span class="n">Articulation</span><span class="p">(</span><span class="n">ANYMAL_B_CFG</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin1/Robot&quot;</span><span class="p">))</span>
+    <span class="n">franka_arm_cfg</span> <span class="o">=</span> <span class="n">FRANKA_PANDA_CFG</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin1/Robot&quot;</span><span class="p">)</span>
+    <span class="n">franka_arm_cfg</span><span class="o">.</span><span class="n">init_state</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
+    <span class="n">franka_panda</span> <span class="o">=</span> <span class="n">Articulation</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">franka_arm_cfg</span><span class="p">)</span>
 
-    <span class="c1"># Origin 2 with Anymal C</span>
+    <span class="c1"># Origin 2 with UR10</span>
     <span class="n">prim_utils</span><span class="o">.</span><span class="n">create_prim</span><span class="p">(</span><span class="s2">&quot;/World/Origin2&quot;</span><span class="p">,</span> <span class="s2">&quot;Xform&quot;</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="n">origins</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="c1"># -- Table</span>
+    <span class="n">cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">UsdFileCfg</span><span class="p">(</span>
+        <span class="n">usd_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ISAAC_NUCLEUS_DIR</span><span class="si">}</span><span class="s2">/Props/Mounts/Stand/stand_instanceable.usd&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">cfg</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Origin2/Table&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">))</span>
     <span class="c1"># -- Robot</span>
-    <span class="n">anymal_c</span> <span class="o">=</span> <span class="n">Articulation</span><span class="p">(</span><span class="n">ANYMAL_C_CFG</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin2/Robot&quot;</span><span class="p">))</span>
+    <span class="n">ur10_cfg</span> <span class="o">=</span> <span class="n">UR10_CFG</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin2/Robot&quot;</span><span class="p">)</span>
+    <span class="n">ur10_cfg</span><span class="o">.</span><span class="n">init_state</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">)</span>
+    <span class="n">ur10</span> <span class="o">=</span> <span class="n">Articulation</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">ur10_cfg</span><span class="p">)</span>
 
-    <span class="c1"># Origin 3 with Anymal D</span>
+    <span class="c1"># Origin 3 with Kinova JACO2 (7-Dof) arm</span>
     <span class="n">prim_utils</span><span class="o">.</span><span class="n">create_prim</span><span class="p">(</span><span class="s2">&quot;/World/Origin3&quot;</span><span class="p">,</span> <span class="s2">&quot;Xform&quot;</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="n">origins</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="c1"># -- Table</span>
+    <span class="n">cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">UsdFileCfg</span><span class="p">(</span><span class="n">usd_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ISAAC_NUCLEUS_DIR</span><span class="si">}</span><span class="s2">/Props/Mounts/ThorlabsTable/table_instanceable.usd&quot;</span><span class="p">)</span>
+    <span class="n">cfg</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Origin3/Table&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>
     <span class="c1"># -- Robot</span>
-    <span class="n">anymal_d</span> <span class="o">=</span> <span class="n">Articulation</span><span class="p">(</span><span class="n">ANYMAL_D_CFG</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin3/Robot&quot;</span><span class="p">))</span>
+    <span class="n">kinova_arm_cfg</span> <span class="o">=</span> <span class="n">KINOVA_JACO2_N7S300_CFG</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin3/Robot&quot;</span><span class="p">)</span>
+    <span class="n">kinova_arm_cfg</span><span class="o">.</span><span class="n">init_state</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
+    <span class="n">kinova_j2n7s300</span> <span class="o">=</span> <span class="n">Articulation</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">kinova_arm_cfg</span><span class="p">)</span>
 
-    <span class="c1"># Origin 4 with Unitree A1</span>
+    <span class="c1"># Origin 4 with Kinova JACO2 (6-Dof) arm</span>
     <span class="n">prim_utils</span><span class="o">.</span><span class="n">create_prim</span><span class="p">(</span><span class="s2">&quot;/World/Origin4&quot;</span><span class="p">,</span> <span class="s2">&quot;Xform&quot;</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="n">origins</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="c1"># -- Table</span>
+    <span class="n">cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">UsdFileCfg</span><span class="p">(</span><span class="n">usd_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ISAAC_NUCLEUS_DIR</span><span class="si">}</span><span class="s2">/Props/Mounts/ThorlabsTable/table_instanceable.usd&quot;</span><span class="p">)</span>
+    <span class="n">cfg</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Origin4/Table&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>
     <span class="c1"># -- Robot</span>
-    <span class="n">unitree_a1</span> <span class="o">=</span> <span class="n">Articulation</span><span class="p">(</span><span class="n">UNITREE_A1_CFG</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin4/Robot&quot;</span><span class="p">))</span>
+    <span class="n">kinova_arm_cfg</span> <span class="o">=</span> <span class="n">KINOVA_JACO2_N6S300_CFG</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin4/Robot&quot;</span><span class="p">)</span>
+    <span class="n">kinova_arm_cfg</span><span class="o">.</span><span class="n">init_state</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>
+    <span class="n">kinova_j2n6s300</span> <span class="o">=</span> <span class="n">Articulation</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">kinova_arm_cfg</span><span class="p">)</span>
 
-    <span class="c1"># Origin 5 with Unitree Go1</span>
+    <span class="c1"># Origin 5 with Sawyer</span>
     <span class="n">prim_utils</span><span class="o">.</span><span class="n">create_prim</span><span class="p">(</span><span class="s2">&quot;/World/Origin5&quot;</span><span class="p">,</span> <span class="s2">&quot;Xform&quot;</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="n">origins</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+    <span class="c1"># -- Table</span>
+    <span class="n">cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">UsdFileCfg</span><span class="p">(</span><span class="n">usd_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ISAAC_NUCLEUS_DIR</span><span class="si">}</span><span class="s2">/Props/Mounts/SeattleLabTable/table_instanceable.usd&quot;</span><span class="p">)</span>
+    <span class="n">cfg</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Origin5/Table&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">))</span>
     <span class="c1"># -- Robot</span>
-    <span class="n">unitree_go1</span> <span class="o">=</span> <span class="n">Articulation</span><span class="p">(</span><span class="n">UNITREE_GO1_CFG</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin5/Robot&quot;</span><span class="p">))</span>
+    <span class="n">kinova_arm_cfg</span> <span class="o">=</span> <span class="n">KINOVA_GEN3_N7_CFG</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin5/Robot&quot;</span><span class="p">)</span>
+    <span class="n">kinova_arm_cfg</span><span class="o">.</span><span class="n">init_state</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
+    <span class="n">kinova_gen3n7</span> <span class="o">=</span> <span class="n">Articulation</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">kinova_arm_cfg</span><span class="p">)</span>
 
-    <span class="c1"># Origin 6 with Unitree Go2</span>
+    <span class="c1"># Origin 6 with Kinova Gen3 (7-Dof) arm</span>
     <span class="n">prim_utils</span><span class="o">.</span><span class="n">create_prim</span><span class="p">(</span><span class="s2">&quot;/World/Origin6&quot;</span><span class="p">,</span> <span class="s2">&quot;Xform&quot;</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="n">origins</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+    <span class="c1"># -- Table</span>
+    <span class="n">cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">UsdFileCfg</span><span class="p">(</span>
+        <span class="n">usd_path</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ISAAC_NUCLEUS_DIR</span><span class="si">}</span><span class="s2">/Props/Mounts/Stand/stand_instanceable.usd&quot;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">cfg</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="s2">&quot;/World/Origin6/Table&quot;</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">))</span>
     <span class="c1"># -- Robot</span>
-    <span class="n">unitree_go2</span> <span class="o">=</span> <span class="n">Articulation</span><span class="p">(</span><span class="n">UNITREE_GO2_CFG</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin6/Robot&quot;</span><span class="p">))</span>
-
-    <span class="c1"># Origin 7 with Boston Dynamics Spot</span>
-    <span class="n">prim_utils</span><span class="o">.</span><span class="n">create_prim</span><span class="p">(</span><span class="s2">&quot;/World/Origin7&quot;</span><span class="p">,</span> <span class="s2">&quot;Xform&quot;</span><span class="p">,</span> <span class="n">translation</span><span class="o">=</span><span class="n">origins</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
-    <span class="c1"># -- Robot</span>
-    <span class="n">spot</span> <span class="o">=</span> <span class="n">Articulation</span><span class="p">(</span><span class="n">SPOT_CFG</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin7/Robot&quot;</span><span class="p">))</span>
+    <span class="n">sawyer_arm_cfg</span> <span class="o">=</span> <span class="n">SAWYER_CFG</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Origin6/Robot&quot;</span><span class="p">)</span>
+    <span class="n">sawyer_arm_cfg</span><span class="o">.</span><span class="n">init_state</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">)</span>
+    <span class="n">sawyer</span> <span class="o">=</span> <span class="n">Articulation</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">sawyer_arm_cfg</span><span class="p">)</span>
 
     <span class="c1"># return the scene information</span>
     <span class="n">scene_entities</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;anymal_b&quot;</span><span class="p">:</span> <span class="n">anymal_b</span><span class="p">,</span>
-        <span class="s2">&quot;anymal_c&quot;</span><span class="p">:</span> <span class="n">anymal_c</span><span class="p">,</span>
-        <span class="s2">&quot;anymal_d&quot;</span><span class="p">:</span> <span class="n">anymal_d</span><span class="p">,</span>
-        <span class="s2">&quot;unitree_a1&quot;</span><span class="p">:</span> <span class="n">unitree_a1</span><span class="p">,</span>
-        <span class="s2">&quot;unitree_go1&quot;</span><span class="p">:</span> <span class="n">unitree_go1</span><span class="p">,</span>
-        <span class="s2">&quot;unitree_go2&quot;</span><span class="p">:</span> <span class="n">unitree_go2</span><span class="p">,</span>
-        <span class="s2">&quot;spot&quot;</span><span class="p">:</span> <span class="n">spot</span><span class="p">,</span>
+        <span class="s2">&quot;franka_panda&quot;</span><span class="p">:</span> <span class="n">franka_panda</span><span class="p">,</span>
+        <span class="s2">&quot;ur10&quot;</span><span class="p">:</span> <span class="n">ur10</span><span class="p">,</span>
+        <span class="s2">&quot;kinova_j2n7s300&quot;</span><span class="p">:</span> <span class="n">kinova_j2n7s300</span><span class="p">,</span>
+        <span class="s2">&quot;kinova_j2n6s300&quot;</span><span class="p">:</span> <span class="n">kinova_j2n6s300</span><span class="p">,</span>
+        <span class="s2">&quot;kinova_gen3n7&quot;</span><span class="p">:</span> <span class="n">kinova_gen3n7</span><span class="p">,</span>
+        <span class="s2">&quot;sawyer&quot;</span><span class="p">:</span> <span class="n">sawyer</span><span class="p">,</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">scene_entities</span><span class="p">,</span> <span class="n">origins</span>
 
@@ -1410,29 +1486,31 @@
     <span class="n">sim_time</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="c1"># Simulate physics</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">entities</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">while</span> <span class="n">simulation_app</span><span class="o">.</span><span class="n">is_running</span><span class="p">():</span>
         <span class="c1"># reset</span>
         <span class="k">if</span> <span class="n">count</span> <span class="o">%</span> <span class="mi">200</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="c1"># reset counters</span>
             <span class="n">sim_time</span> <span class="o">=</span> <span class="mf">0.0</span>
             <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="c1"># reset robots</span>
+            <span class="c1"># reset the scene entities</span>
             <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">robot</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">entities</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
                 <span class="c1"># root state</span>
                 <span class="n">root_state</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">default_root_state</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
                 <span class="n">root_state</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">+=</span> <span class="n">origins</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
                 <span class="n">robot</span><span class="o">.</span><span class="n">write_root_state_to_sim</span><span class="p">(</span><span class="n">root_state</span><span class="p">)</span>
-                <span class="c1"># joint state</span>
+                <span class="c1"># set joint positions</span>
                 <span class="n">joint_pos</span><span class="p">,</span> <span class="n">joint_vel</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">default_joint_pos</span><span class="o">.</span><span class="n">clone</span><span class="p">(),</span> <span class="n">robot</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">default_joint_vel</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
                 <span class="n">robot</span><span class="o">.</span><span class="n">write_joint_state_to_sim</span><span class="p">(</span><span class="n">joint_pos</span><span class="p">,</span> <span class="n">joint_vel</span><span class="p">)</span>
-                <span class="c1"># reset the internal state</span>
+                <span class="c1"># clear internal buffers</span>
                 <span class="n">robot</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO]: Resetting robots state...&quot;</span><span class="p">)</span>
-        <span class="c1"># apply default actions to the quadrupedal robots</span>
+        <span class="c1"># apply random actions to the robots</span>
         <span class="k">for</span> <span class="n">robot</span> <span class="ow">in</span> <span class="n">entities</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
             <span class="c1"># generate random joint positions</span>
             <span class="n">joint_pos_target</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">default_joint_pos</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn_like</span><span class="p">(</span><span class="n">robot</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">joint_pos</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span>
+            <span class="n">joint_pos_target</span> <span class="o">=</span> <span class="n">joint_pos_target</span><span class="o">.</span><span class="n">clamp_</span><span class="p">(</span>
+                <span class="n">robot</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">soft_joint_pos_limits</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">robot</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">soft_joint_pos_limits</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="p">)</span>
             <span class="c1"># apply action to the robot</span>
             <span class="n">robot</span><span class="o">.</span><span class="n">set_joint_position_target</span><span class="p">(</span><span class="n">joint_pos_target</span><span class="p">)</span>
             <span class="c1"># write data to sim</span>
@@ -1449,11 +1527,11 @@
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Main function.&quot;&quot;&quot;</span>
-
     <span class="c1"># Initialize the simulation context</span>
-    <span class="n">sim</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">SimulationContext</span><span class="p">(</span><span class="n">sim_utils</span><span class="o">.</span><span class="n">SimulationCfg</span><span class="p">(</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.01</span><span class="p">))</span>
+    <span class="n">sim_cfg</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">SimulationCfg</span><span class="p">()</span>
+    <span class="n">sim</span> <span class="o">=</span> <span class="n">sim_utils</span><span class="o">.</span><span class="n">SimulationContext</span><span class="p">(</span><span class="n">sim_cfg</span><span class="p">)</span>
     <span class="c1"># Set main camera</span>
-    <span class="n">sim</span><span class="o">.</span><span class="n">set_camera_view</span><span class="p">(</span><span class="n">eye</span><span class="o">=</span><span class="p">[</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="n">target</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">])</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">set_camera_view</span><span class="p">([</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
     <span class="c1"># design scene</span>
     <span class="n">scene_entities</span><span class="p">,</span> <span class="n">scene_origins</span> <span class="o">=</span> <span class="n">design_scene</span><span class="p">()</span>
     <span class="n">scene_origins</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">scene_origins</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">sim</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
@@ -1473,9 +1551,9 @@
 </code></pre></div></td></tr></table></div>
 <h2 id="config">Config関連</h2>
 <ul>
-<li><a href="https://github.com/isaac-sim/IsaacLab/blob/main/source/extensions/omni.isaac.lab_assets/omni/isaac/lab_assets/unitree.py">omni.isaac.lab_assets.unitree</a></li>
-<li><a href="https://github.com/isaac-sim/IsaacLab/blob/main/source/extensions/omni.isaac.lab_assets/omni/isaac/lab_assets/spot.py">omni.isaac.lab_assets.spot</a></li>
-<li><a href="https://github.com/isaac-sim/IsaacLab/blob/main/source/extensions/omni.isaac.lab_assets/omni/isaac/lab_assets/anymal.py">omni.isaac.lab_assets.anymal</a></li>
+<li><a href="https://github.com/isaac-sim/IsaacLab/blob/main/source/extensions/omni.isaac.lab_assets/omni/isaac/lab_assets/franka.py">omni.isaac.lab_assets.franka</a></li>
+<li><a href="https://github.com/isaac-sim/IsaacLab/blob/main/source/extensions/omni.isaac.lab_assets/omni/isaac/lab_assets/universal_robots.py">omni.isaac.lab_assets.universal_robots</a></li>
+<li><a href="https://github.com/isaac-sim/IsaacLab/blob/main/source/extensions/omni.isaac.lab_assets/omni/isaac/lab_assets/kinova.py">omni.isaac.lab_assets.kinova</a></li>
 </ul>
 
 
