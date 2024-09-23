@@ -1,0 +1,95 @@
+site_name: Isaac SIM Docs
+use_directory_urls: false
+theme:
+    name: material
+    custom_dir: 'docs/theme'
+    language: 'ja'
+    palette:
+      primary: 'green'
+      accent: 'black'
+    #logo: 'logo.png'
+    favicon: 'favicon.png'
+extra:
+    search:
+        language: 'jp'
+markdown_extensions:
+  - fontawesome_markdown
+  - pymdownx.highlight:
+      use_pygments: true
+      noclasses: false
+      pygments_style: monokai
+      linenums: true
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.keys
+  - attr_list
+nav:
+  - Home: "index.md"
+  - 1.Templateの作成: 
+    - Templateの作成: "template/create.md"
+    - 最小限のtemplate: "template/template.md"
+  - 2.GroundPlate:
+    - GroundPlateの設置: "groundplate/plate.md"
+    - PlateにTexture: "groundplate/plate_texture.md"
+  - 3.Scene:
+    - Sceneを読込(Grid青): "scene/scene_grid.md"
+    - Sceneを読込(Grid黒): "scene/scene_grid_black.md"
+    - Sceneを読込(工場): "scene/scene_factory.md"
+    - Sceneを読込(部屋): "scene/scene_room.md"
+  - 4.Object:
+    - Cube: "object/cube.md"
+    - CubeにRigid追加: "object/cube_rigid.md"
+    - Cubeを赤に: "object/cube_red.md"
+    - Cubeを透過: "object/cube_trans.md"
+  - 5.Asset:
+    - Drum(赤): "asset/drum_red.md"
+  - 6.Python:
+    - pip: "python/pip.md"
+  - 10.Human:
+    - Worker: "human/worker.md"
+  - 11.AGV:
+    - IdealWorks: "agv/idealworks.md"
+    - IdealWorks移動: "agv/idealworks_run.md"
+  - 12.Quadruped:
+    - Go2: "quadruped/go2.md"
+    - Go2動作: "quadruped/go2_move.md"
+  - 13.Humanoid:
+    - H1: "humanoid/h1.md"
+    - H1移動: "humanoid/h1_move.md"
+  - 14.Fusion360連携:
+    - URDF変換: "fusion360/urdf.md"
+    - USD変換: "fusion360/usd.md"
+  - 20.Streaming:
+    - RTPでの配信: "streaming/rtp.md"
+  - 30.Lab:
+    - Teleportation: "lab/teleportation.md"
+    - quadruredsサンプル: "lab/quadrureds.md"
+    - bipedsサンプル: "lab/bipeds.md"
+    - armsサンプル: "lab/arms.md"
+    - handsサンプル: "lab/hands.md"
+    - markersサンプル: "lab/markers.md"
+    - camerasサンプル: "lab/cameras.md"
+    - deformablesサンプル: "lab/deformables.md"
+    - quadcopterサンプル: "lab/quadcopter.md"
+  - 31.Lab(強化学習):
+    - 対応している学習: "rl/rl.md"
+    - taskの一覧: "rl/task.md"
+    - Stable-Baselines3: "rl/sb3.md"
+    - RSL-RL: "rl/rsl_rl.md"
+    - SKRL: "rl/skrl.md"
+  - 40.赤ベコRL:
+    - 赤ベコRL(SIM): "akabeko/model.md"
+    - 赤ベコRL(Lab): "akabeko/model_lab.md"
+
+extra_css:
+#  - "https://fonts.googleapis.com/earlyaccess/notosansjp.css"
+#  - "https://fonts.googleapis.com/css?family=Open+Sans:600,800"
+  - "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+#  - "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css"
+  - "css/version-select.css"
+  - "css/custom.css"
+extra_javascript:
+  - javascripts/version-select.js
+  - javascripts/extra.js
+plugins:
+  - macros

@@ -1,0 +1,2637 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../fusion360/usd.html">
+      
+      
+        <link rel="next" href="../lab/teleportation.html">
+      
+      <link rel="icon" href="../favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>RTPでの配信 - Isaac SIM Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="../css/version-select.css">
+    
+      <link rel="stylesheet" href="../css/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="black">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rtp" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../index.html" title="Isaac SIM Docs" class="md-header__button md-logo" aria-label="Isaac SIM Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Isaac SIM Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              RTPでの配信
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Isaac SIM Docs" class="md-nav__button md-logo" aria-label="Isaac SIM Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Isaac SIM Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          1.Templateの作成
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          1.Templateの作成
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template/create.html" class="md-nav__link">
+        Templateの作成
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template/template.html" class="md-nav__link">
+        最小限のtemplate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          2.GroundPlate
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          2.GroundPlate
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groundplate/plate.html" class="md-nav__link">
+        GroundPlateの設置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../groundplate/plate_texture.html" class="md-nav__link">
+        PlateにTexture
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          3.Scene
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          3.Scene
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scene/scene_grid.html" class="md-nav__link">
+        Sceneを読込(Grid青)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scene/scene_grid_black.html" class="md-nav__link">
+        Sceneを読込(Grid黒)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scene/scene_factory.html" class="md-nav__link">
+        Sceneを読込(工場)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scene/scene_room.html" class="md-nav__link">
+        Sceneを読込(部屋)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          4.Object
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          4.Object
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object/cube.html" class="md-nav__link">
+        Cube
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object/cube_rigid.html" class="md-nav__link">
+        CubeにRigid追加
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object/cube_red.html" class="md-nav__link">
+        Cubeを赤に
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object/cube_trans.html" class="md-nav__link">
+        Cubeを透過
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          5.Asset
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          5.Asset
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../asset/drum_red.html" class="md-nav__link">
+        Drum(赤)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          6.Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          6.Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python/pip.html" class="md-nav__link">
+        pip
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          10.Human
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          10.Human
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../human/worker.html" class="md-nav__link">
+        Worker
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          11.AGV
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          11.AGV
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agv/idealworks.html" class="md-nav__link">
+        IdealWorks
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agv/idealworks_run.html" class="md-nav__link">
+        IdealWorks移動
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          12.Quadruped
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          12.Quadruped
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quadruped/go2.html" class="md-nav__link">
+        Go2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quadruped/go2_move.html" class="md-nav__link">
+        Go2動作
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          13.Humanoid
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_11">
+          <span class="md-nav__icon md-icon"></span>
+          13.Humanoid
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../humanoid/h1.html" class="md-nav__link">
+        H1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../humanoid/h1_move.html" class="md-nav__link">
+        H1移動
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+          14.Fusion360連携
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_12">
+          <span class="md-nav__icon md-icon"></span>
+          14.Fusion360連携
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fusion360/urdf.html" class="md-nav__link">
+        URDF変換
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fusion360/usd.html" class="md-nav__link">
+        USD変換
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+          20.Streaming
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_13">
+          <span class="md-nav__icon md-icon"></span>
+          20.Streaming
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          RTPでの配信
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="rtp.html" class="md-nav__link md-nav__link--active">
+        RTPでの配信
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preview" class="md-nav__link">
+    Preview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ソースコード
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+          30.Lab
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_14">
+          <span class="md-nav__icon md-icon"></span>
+          30.Lab
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab/teleportation.html" class="md-nav__link">
+        Teleportation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab/quadrureds.html" class="md-nav__link">
+        quadruredsサンプル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab/bipeds.html" class="md-nav__link">
+        bipedsサンプル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab/arms.html" class="md-nav__link">
+        armsサンプル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab/hands.html" class="md-nav__link">
+        handsサンプル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab/markers.html" class="md-nav__link">
+        markersサンプル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab/cameras.html" class="md-nav__link">
+        camerasサンプル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab/deformables.html" class="md-nav__link">
+        deformablesサンプル
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab/quadcopter.html" class="md-nav__link">
+        quadcopterサンプル
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+          31.Lab(強化学習)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_15">
+          <span class="md-nav__icon md-icon"></span>
+          31.Lab(強化学習)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rl/rl.html" class="md-nav__link">
+        対応している学習
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rl/task.html" class="md-nav__link">
+        taskの一覧
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rl/sb3.html" class="md-nav__link">
+        Stable-Baselines3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rl/rsl_rl.html" class="md-nav__link">
+        RSL-RL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rl/skrl.html" class="md-nav__link">
+        SKRL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          40.赤ベコRL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_16">
+          <span class="md-nav__icon md-icon"></span>
+          40.赤ベコRL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../akabeko/model.html" class="md-nav__link">
+        赤ベコRL(SIM)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../akabeko/model_lab.html" class="md-nav__link">
+        赤ベコRL(Lab)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#preview" class="md-nav__link">
+    Preview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    ソースコード
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="rtp">RTPでの配信</h1>
+<h2 id="preview">Preview</h2>
+<p><img alt="" src="img/rtp.png" /></p>
+<p>GStreamerでの受信</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>gst-launch-1.0<span class="w"> </span>udpsrc<span class="w"> </span><span class="nv">port</span><span class="o">=</span><span class="m">5000</span><span class="w"> </span><span class="nv">caps</span><span class="o">=</span><span class="s2">&quot;application/x-rtp,</span>
+<span class="s2">media=(string)video, clock-rate=(int)90000,</span>
+<span class="s2">encoding-name=(string)JPEG, payload=(int)26&quot;</span><span class="w"> </span>!<span class="w"> </span>rtpjpegdepay<span class="w"> </span>!<span class="w"> </span>jpegdec
+!<span class="w"> </span>autovideosink
+</code></pre></div></td></tr></table></div>
+<img alt="" src="img/rtp_gstreamer.png" /></p>
+<h2 id="_1">ソースコード</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
+<span class="normal">  2</span>
+<span class="normal">  3</span>
+<span class="normal">  4</span>
+<span class="normal">  5</span>
+<span class="normal">  6</span>
+<span class="normal">  7</span>
+<span class="normal">  8</span>
+<span class="normal">  9</span>
+<span class="normal"> 10</span>
+<span class="normal"> 11</span>
+<span class="normal"> 12</span>
+<span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span>
+<span class="normal">353</span>
+<span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span>
+<span class="normal">416</span>
+<span class="normal">417</span>
+<span class="normal">418</span>
+<span class="normal">419</span>
+<span class="normal">420</span>
+<span class="normal">421</span>
+<span class="normal">422</span>
+<span class="normal">423</span>
+<span class="normal">424</span>
+<span class="normal">425</span>
+<span class="normal">426</span>
+<span class="normal">427</span>
+<span class="normal">428</span>
+<span class="normal">429</span>
+<span class="normal">430</span>
+<span class="normal">431</span>
+<span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span>
+<span class="normal">455</span>
+<span class="normal">456</span>
+<span class="normal">457</span>
+<span class="normal">458</span>
+<span class="normal">459</span>
+<span class="normal">460</span>
+<span class="normal">461</span>
+<span class="normal">462</span>
+<span class="normal">463</span>
+<span class="normal">464</span>
+<span class="normal">465</span>
+<span class="normal">466</span>
+<span class="normal">467</span>
+<span class="normal">468</span>
+<span class="normal">469</span>
+<span class="normal">470</span>
+<span class="normal">471</span>
+<span class="normal">472</span>
+<span class="normal">473</span>
+<span class="normal">474</span>
+<span class="normal">475</span>
+<span class="normal">476</span>
+<span class="normal">477</span>
+<span class="normal">478</span>
+<span class="normal">479</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span>
+<span class="normal">485</span>
+<span class="normal">486</span>
+<span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
+<span class="normal">501</span>
+<span class="normal">502</span>
+<span class="normal">503</span>
+<span class="normal">504</span>
+<span class="normal">505</span>
+<span class="normal">506</span>
+<span class="normal">507</span>
+<span class="normal">508</span>
+<span class="normal">509</span>
+<span class="normal">510</span>
+<span class="normal">511</span>
+<span class="normal">512</span>
+<span class="normal">513</span>
+<span class="normal">514</span>
+<span class="normal">515</span>
+<span class="normal">516</span>
+<span class="normal">517</span>
+<span class="normal">518</span>
+<span class="normal">519</span>
+<span class="normal">520</span>
+<span class="normal">521</span>
+<span class="normal">522</span>
+<span class="normal">523</span>
+<span class="normal">524</span>
+<span class="normal">525</span>
+<span class="normal">526</span>
+<span class="normal">527</span>
+<span class="normal">528</span>
+<span class="normal">529</span>
+<span class="normal">530</span>
+<span class="normal">531</span>
+<span class="normal">532</span>
+<span class="normal">533</span>
+<span class="normal">534</span>
+<span class="normal">535</span>
+<span class="normal">536</span>
+<span class="normal">537</span>
+<span class="normal">538</span>
+<span class="normal">539</span>
+<span class="normal">540</span>
+<span class="normal">541</span>
+<span class="normal">542</span>
+<span class="normal">543</span>
+<span class="normal">544</span>
+<span class="normal">545</span>
+<span class="normal">546</span>
+<span class="normal">547</span>
+<span class="normal">548</span>
+<span class="normal">549</span>
+<span class="normal">550</span>
+<span class="normal">551</span>
+<span class="normal">552</span>
+<span class="normal">553</span>
+<span class="normal">554</span>
+<span class="normal">555</span>
+<span class="normal">556</span>
+<span class="normal">557</span>
+<span class="normal">558</span>
+<span class="normal">559</span>
+<span class="normal">560</span>
+<span class="normal">561</span>
+<span class="normal">562</span>
+<span class="normal">563</span>
+<span class="normal">564</span>
+<span class="normal">565</span>
+<span class="normal">566</span>
+<span class="normal">567</span>
+<span class="normal">568</span>
+<span class="normal">569</span>
+<span class="normal">570</span>
+<span class="normal">571</span>
+<span class="normal">572</span>
+<span class="normal">573</span>
+<span class="normal">574</span>
+<span class="normal">575</span>
+<span class="normal">576</span>
+<span class="normal">577</span>
+<span class="normal">578</span>
+<span class="normal">579</span>
+<span class="normal">580</span>
+<span class="normal">581</span>
+<span class="normal">582</span>
+<span class="normal">583</span>
+<span class="normal">584</span>
+<span class="normal">585</span>
+<span class="normal">586</span>
+<span class="normal">587</span>
+<span class="normal">588</span>
+<span class="normal">589</span>
+<span class="normal">590</span>
+<span class="normal">591</span>
+<span class="normal">592</span>
+<span class="normal">593</span>
+<span class="normal">594</span>
+<span class="normal">595</span>
+<span class="normal">596</span>
+<span class="normal">597</span>
+<span class="normal">598</span>
+<span class="normal">599</span>
+<span class="normal">600</span>
+<span class="normal">601</span>
+<span class="normal">602</span>
+<span class="normal">603</span>
+<span class="normal">604</span>
+<span class="normal">605</span>
+<span class="normal">606</span>
+<span class="normal">607</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">omni.timeline</span>
+<span class="kn">import</span> <span class="nn">omni.ui</span> <span class="k">as</span> <span class="nn">ui</span>
+<span class="kn">from</span> <span class="nn">omni.isaac.ui.element_wrappers</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Button</span><span class="p">,</span>
+    <span class="n">CollapsableFrame</span><span class="p">,</span>
+    <span class="n">IntField</span><span class="p">,</span>
+    <span class="n">StringField</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">omni.isaac.ui.ui_utils</span> <span class="kn">import</span> <span class="n">get_style</span>
+<span class="kn">from</span> <span class="nn">pxr</span> <span class="kn">import</span> <span class="n">Usd</span><span class="p">,</span> <span class="n">UsdGeom</span><span class="p">,</span> <span class="n">Gf</span>
+<span class="kn">import</span> <span class="nn">omni.usd</span>
+<span class="kn">from</span> <span class="nn">omni.isaac.sensor</span> <span class="kn">import</span> <span class="n">Camera</span>
+<span class="kn">import</span> <span class="nn">omni.isaac.core.utils.numpy.rotations</span> <span class="k">as</span> <span class="nn">rot_utils</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">struct</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">io</span>
+
+<span class="k">class</span> <span class="nc">UIBuilder</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        初期化メソッド。</span>
+<span class="sd">        Isaac SIMが起動した際に一度呼び出されます。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># UI要素のリストを初期化</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wrapped_ui_elements</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># タイムラインインターフェースを取得（再生・停止・一時停止を制御します）</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timeline</span> <span class="o">=</span> <span class="n">omni</span><span class="o">.</span><span class="n">timeline</span><span class="o">.</span><span class="n">get_timeline_interface</span><span class="p">()</span>
+
+        <span class="c1"># カメラセンサーの初期化</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">camera_sensor</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># カメラの回転がアクティブかどうかのフラグ</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rotation_active</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">on_menu_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ツールバーからUIが開かれたときに呼び出されるコールバック。</span>
+<span class="sd">        build_ui()の直後に呼び出されます。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;on_menu_callback&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">on_timeline_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        タイムラインイベント（再生、停止、一時停止）のコールバック。</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            event (omni.timeline.TimelineEventType): イベントの種類</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># イベントの処理をここに記述します（必要に応じて）</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">on_physics_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        物理ステップごとに呼び出されるコールバック。</span>
+<span class="sd">        タイムラインが再生されているときにのみ発生します。</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            dt (float): 物理ステップのサイズ</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rotation_active</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">camera_sensor</span><span class="p">:</span>
+            <span class="c1"># ステージからカメラのプライムパスを取得します</span>
+            <span class="n">stage</span> <span class="o">=</span> <span class="n">omni</span><span class="o">.</span><span class="n">usd</span><span class="o">.</span><span class="n">get_context</span><span class="p">()</span><span class="o">.</span><span class="n">get_stage</span><span class="p">()</span>
+            <span class="n">prim</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="n">GetPrimAtPath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">camera_sensor</span><span class="o">.</span><span class="n">prim_path</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">prim</span><span class="o">.</span><span class="n">IsValid</span><span class="p">():</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;カメラのプライムパス </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">camera_sensor</span><span class="o">.</span><span class="n">prim_path</span><span class="si">}</span><span class="s2"> が無効です。&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+
+            <span class="c1"># カメラのXformable APIを使用して変換操作を取得します</span>
+            <span class="n">xformable</span> <span class="o">=</span> <span class="n">UsdGeom</span><span class="o">.</span><span class="n">Xformable</span><span class="p">(</span><span class="n">prim</span><span class="p">)</span>
+            <span class="n">xform_ops</span> <span class="o">=</span> <span class="n">xformable</span><span class="o">.</span><span class="n">GetOrderedXformOps</span><span class="p">()</span>
+
+            <span class="c1"># 既存の回転操作を検索します。なければ新規に作成します</span>
+            <span class="n">rotate_op</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">xform_ops</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">op</span><span class="o">.</span><span class="n">GetOpType</span><span class="p">()</span> <span class="o">==</span> <span class="n">UsdGeom</span><span class="o">.</span><span class="n">XformOp</span><span class="o">.</span><span class="n">TypeRotateXYZ</span><span class="p">:</span>
+                    <span class="n">rotate_op</span> <span class="o">=</span> <span class="n">op</span>
+                    <span class="k">break</span>
+            <span class="k">if</span> <span class="n">rotate_op</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">rotate_op</span> <span class="o">=</span> <span class="n">xformable</span><span class="o">.</span><span class="n">AddXformOp</span><span class="p">(</span>
+                    <span class="n">UsdGeom</span><span class="o">.</span><span class="n">XformOp</span><span class="o">.</span><span class="n">TypeRotateXYZ</span><span class="p">,</span>
+                    <span class="n">UsdGeom</span><span class="o">.</span><span class="n">XformOp</span><span class="o">.</span><span class="n">PrecisionDouble</span>
+                <span class="p">)</span>
+
+            <span class="c1"># 現在の回転角度を取得します</span>
+            <span class="n">current_rotation</span> <span class="o">=</span> <span class="n">rotate_op</span><span class="o">.</span><span class="n">Get</span><span class="p">(</span><span class="n">Usd</span><span class="o">.</span><span class="n">TimeCode</span><span class="o">.</span><span class="n">Default</span><span class="p">())</span>
+            <span class="k">if</span> <span class="n">current_rotation</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">current_rotation</span> <span class="o">=</span> <span class="n">Gf</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+
+            <span class="c1"># y軸周りの回転角度を更新します</span>
+            <span class="n">delta_angle</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># フレームごとの回転角度（度）</span>
+            <span class="n">new_rotation</span> <span class="o">=</span> <span class="n">Gf</span><span class="o">.</span><span class="n">Vec3d</span><span class="p">(</span>
+                <span class="n">current_rotation</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="p">(</span><span class="n">current_rotation</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">delta_angle</span><span class="p">)</span> <span class="o">%</span> <span class="mf">360.0</span><span class="p">,</span>
+                <span class="n">current_rotation</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="p">)</span>
+
+            <span class="c1"># 新しい回転角度を設定します</span>
+            <span class="n">rotate_op</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">new_rotation</span><span class="p">,</span> <span class="n">Usd</span><span class="o">.</span><span class="n">TimeCode</span><span class="o">.</span><span class="n">Default</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">on_stage_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ステージイベントのコールバック。</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            event (omni.usd.StageEventType): イベントタイプ</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;event type: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># 必要に応じてイベントの処理を記述します</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ステージが閉じられたときや拡張機能がホットリロードされたときに呼び出されます。</span>
+<span class="sd">        必要なクリーンアップ処理を行い、アクティブなコールバック関数を削除します。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cleanup&quot;</span><span class="p">)</span>
+        <span class="c1"># UIエレメントのクリーンアップ</span>
+        <span class="k">for</span> <span class="n">ui_elem</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapped_ui_elements</span><span class="p">:</span>
+            <span class="n">ui_elem</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+        <span class="c1"># ストリーミングがアクティブであれば停止します</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;streaming_active&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">streaming_active</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">streaming_active</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;streaming_thread&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">streaming_thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">streaming_thread</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;sock&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">sock</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ストリーミングを停止しました。&quot;</span><span class="p">)</span>
+        <span class="c1"># 物理ステップイベントの購読を解除</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_physics_sub&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_physics_sub</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_physics_sub</span><span class="o">.</span><span class="n">unsubscribe</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_physics_sub</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">build_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        カスタムUIツールを構築して、拡張機能を実行します。</span>
+<span class="sd">        この関数は、UIウィンドウが閉じて再度開かれるたびに呼び出されます。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;build_ui&quot;</span><span class="p">)</span>
+
+        <span class="c1"># メニューのフレームを作成します</span>
+        <span class="n">object_map</span> <span class="o">=</span> <span class="n">CollapsableFrame</span><span class="p">(</span><span class="s2">&quot;Menu&quot;</span><span class="p">,</span> <span class="n">collapsed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">object_map</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">ui</span><span class="o">.</span><span class="n">VStack</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="n">get_style</span><span class="p">(),</span> <span class="n">spacing</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+                <span class="k">with</span> <span class="n">ui</span><span class="o">.</span><span class="n">VStack</span><span class="p">():</span>
+                    <span class="c1"># グラウンドプレーンを設定するボタンを作成します</span>
+                    <span class="n">groundplane_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span>
+                        <span class="s2">&quot;Ground Plate&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;Set&quot;</span><span class="p">,</span>
+                        <span class="n">on_click_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_on_set_groundplane</span><span class="p">,</span>
+                    <span class="p">)</span>
+
+                    <span class="n">ui</span><span class="o">.</span><span class="n">Spacer</span><span class="p">(</span><span class="n">height</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+                    <span class="c1"># カメラのFPSを設定するフィールドを作成します</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">camera_fps_field</span> <span class="o">=</span> <span class="n">IntField</span><span class="p">(</span>
+                        <span class="s2">&quot;Camera FPS&quot;</span><span class="p">,</span>
+                        <span class="n">default_value</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                        <span class="n">lower_limit</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                        <span class="n">upper_limit</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+                    <span class="p">)</span>
+
+                    <span class="c1"># カメラを設定するボタンを作成します</span>
+                    <span class="n">camera_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span>
+                        <span class="s2">&quot;Camera&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;Set&quot;</span><span class="p">,</span>
+                        <span class="n">on_click_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_on_set_camera</span><span class="p">,</span>
+                    <span class="p">)</span>
+
+                    <span class="c1"># ストリーミング先のIPアドレスを入力するフィールドを作成します</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ip_field</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span>
+                        <span class="s2">&quot;IP&quot;</span><span class="p">,</span>
+                        <span class="n">default_value</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+                        <span class="n">read_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">multiline_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="p">)</span>
+
+                    <span class="c1"># ストリーミング先のポート番号を入力するフィールドを作成します</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">port_field</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span>
+                        <span class="s2">&quot;PORT&quot;</span><span class="p">,</span>
+                        <span class="n">default_value</span><span class="o">=</span><span class="s2">&quot;5000&quot;</span><span class="p">,</span>
+                        <span class="n">read_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">multiline_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                    <span class="p">)</span>
+
+                    <span class="c1"># ストリーミングを開始するボタンを作成します</span>
+                    <span class="n">start_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span>
+                        <span class="s2">&quot;RTP Stream&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;Start&quot;</span><span class="p">,</span>
+                        <span class="n">on_click_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_on_stream_start</span><span class="p">,</span>
+                    <span class="p">)</span>
+
+                    <span class="c1"># ストリーミングを停止するボタンを作成します</span>
+                    <span class="n">stop_button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span>
+                        <span class="s2">&quot;RTP Stream&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;Stop&quot;</span><span class="p">,</span>
+                        <span class="n">on_click_fn</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_on_stream_stop</span><span class="p">,</span>
+                    <span class="p">)</span>
+
+                <span class="c1"># UIエレメントのリストに追加します</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">wrapped_ui_elements</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span>
+                    <span class="n">groundplane_button</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">camera_fps_field</span><span class="p">,</span>
+                    <span class="n">camera_button</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ip_field</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">port_field</span><span class="p">,</span>
+                    <span class="n">start_button</span><span class="p">,</span>
+                    <span class="n">stop_button</span>
+                <span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">_on_set_groundplane</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        グラウンドプレーンのボタンが押されたときに呼び出されるメソッド。</span>
+<span class="sd">        シーンを読み込みます。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">asyncio</span><span class="o">.</span><span class="n">ensure_future</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_set_groundplane_async</span><span class="p">())</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_set_groundplane_async</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        非同期でグラウンドプレーンのシーンをロードします。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">usd_file_path</span> <span class="o">=</span> <span class="s2">&quot;http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.0/Isaac/Environments/Simple_Warehouse/warehouse_multiple_shelves.usd&quot;</span>
+        <span class="k">await</span> <span class="n">omni</span><span class="o">.</span><span class="n">usd</span><span class="o">.</span><span class="n">get_context</span><span class="p">()</span><span class="o">.</span><span class="n">open_stage_async</span><span class="p">(</span><span class="n">usd_file_path</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;USDシーンがロードされました&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_on_set_camera</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        カメラの設定ボタンが押されたときに呼び出されるメソッド。</span>
+<span class="sd">        カメラを設定します。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;カメラを初期化します...&quot;</span><span class="p">)</span>
+
+            <span class="c1"># カメラの位置と向きを設定します</span>
+            <span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+            <span class="n">orientation_euler</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># オイラー角（度）</span>
+            <span class="n">orientation_quat</span> <span class="o">=</span> <span class="n">rot_utils</span><span class="o">.</span><span class="n">euler_angles_to_quats</span><span class="p">(</span><span class="n">orientation_euler</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="c1"># UIからFPSの値を取得します</span>
+            <span class="n">fps_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">camera_fps_field</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">camera_fps</span> <span class="o">=</span> <span class="n">fps_value</span>  <span class="c1"># 他のメソッドでも使用できるように保存</span>
+
+            <span class="c1"># カメラセンサーを初期化します</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">camera_sensor</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">(</span>
+                <span class="n">prim_path</span><span class="o">=</span><span class="s2">&quot;/World/Camera&quot;</span><span class="p">,</span>
+                <span class="n">position</span><span class="o">=</span><span class="n">position</span><span class="p">,</span>
+                <span class="n">frequency</span><span class="o">=</span><span class="n">fps_value</span><span class="p">,</span>
+                <span class="n">resolution</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">),</span>
+                <span class="n">orientation</span><span class="o">=</span><span class="n">orientation_quat</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">camera_sensor</span><span class="o">.</span><span class="n">initialize</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;エラーが発生しました: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_on_stream_stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ストリーミングを停止します。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;streaming_active&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">streaming_active</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">streaming_active</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="c1"># ストリーミング停止時にカメラの回転を停止します</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rotation_active</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="c1"># スレッドの終了を待機します</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;streaming_thread&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">streaming_thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">streaming_thread</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;sock&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">sock</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ストリーミングを停止しました。&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ストリーミングは既に停止しています。&quot;</span><span class="p">)</span>
+
+        <span class="c1"># タイムラインを停止します</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timeline</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rotation_active</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">_on_stream_start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ストリーム開始ボタンが押されたときに呼び出されるメソッド。</span>
+<span class="sd">        ストリーミングを開始します。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># UIフィールドからIPとポートを取得します</span>
+        <span class="n">ip_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ip_field</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">port_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">port_field</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># IPアドレスの検証</span>
+            <span class="n">socket</span><span class="o">.</span><span class="n">inet_aton</span><span class="p">(</span><span class="n">ip_value</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">destination_ip</span> <span class="o">=</span> <span class="n">ip_value</span>
+        <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;エラー: 有効なIPアドレスを入力してください。&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># ポート番号の検証</span>
+            <span class="n">port</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">port_value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">port</span> <span class="o">&lt;=</span> <span class="mi">65535</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">destination_port</span> <span class="o">=</span> <span class="n">port</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;エラー: ポート番号は0から65535の間で指定してください。&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;エラー: 有効なポート番号を入力してください。&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="c1"># ストリーミングを開始します</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start_streaming</span><span class="p">()</span>
+        <span class="c1"># タイムラインを再生します</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timeline</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rotation_active</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">start_streaming</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ストリーミングを開始します。</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;streaming_active&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">streaming_active</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;既にストリーミングが開始されています。&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">streaming_active</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+        <span class="c1"># ストリームを別スレッドで開始します</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">streaming_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span>
+            <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stream_jpeg_rtp</span><span class="p">,</span>
+            <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">destination_ip</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">destination_port</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">streaming_thread</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># メインプログラムと一緒に終了するようにデーモン化</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">streaming_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;別スレッドでストリーミングを開始しました。送信先: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">destination_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">destination_port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stream_jpeg_rtp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">destination_ip</span><span class="p">,</span> <span class="n">destination_port</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        カメラからJPEGデータを取得し、RTPでストリーミングします。</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            destination_ip (str): 送信先のIPアドレス</span>
+<span class="sd">            destination_port (int): 送信先のポート番号</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sequence_number</span> <span class="o">=</span> <span class="mh">0x00</span>
+        <span class="n">ssrc</span> <span class="o">=</span> <span class="mh">0xb18b8be8</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">streaming_active</span><span class="p">:</span>
+                <span class="n">timestamp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">90000</span><span class="p">)</span>
+                <span class="n">jpeg_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_to_jpeg</span><span class="p">()</span>
+                <span class="n">sequence_number</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_jpeg_frame</span><span class="p">(</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="p">,</span> <span class="n">sequence_number</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">ssrc</span><span class="p">,</span>
+                    <span class="n">jpeg_data</span><span class="p">,</span> <span class="n">destination_ip</span><span class="p">,</span> <span class="n">destination_port</span>
+                <span class="p">)</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">camera_fps</span><span class="p">)</span>  <span class="c1"># UIから取得したFPSの値を使用</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ストリーミング中にエラーが発生しました: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;sock&#39;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ストリーミングスレッドを終了しました。&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">raw_to_jpeg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        カメラセンサーから画像を取得し、JPEG形式に変換します。</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bytes: JPEGデータ</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># カメラのプライムパスが有効か確認します</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">camera_sensor</span><span class="o">.</span><span class="n">prim_path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;エラー: カメラのプライムパスがNoneです。&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+            <span class="c1"># ステージを取得します</span>
+            <span class="n">stage</span> <span class="o">=</span> <span class="n">omni</span><span class="o">.</span><span class="n">usd</span><span class="o">.</span><span class="n">get_context</span><span class="p">()</span><span class="o">.</span><span class="n">get_stage</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">stage</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;エラー: ステージが初期化されていません。&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+            <span class="c1"># カメラのプライムを取得します</span>
+            <span class="n">prim</span> <span class="o">=</span> <span class="n">stage</span><span class="o">.</span><span class="n">GetPrimAtPath</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">camera_sensor</span><span class="o">.</span><span class="n">prim_path</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">prim</span><span class="o">.</span><span class="n">IsValid</span><span class="p">():</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;エラー: 無効なプライムパス </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">camera_sensor</span><span class="o">.</span><span class="n">prim_path</span><span class="si">}</span><span class="s2">。&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+            <span class="c1"># 画像データを取得します</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">camera_sensor</span><span class="p">,</span> <span class="s1">&#39;get_rgba&#39;</span><span class="p">):</span>
+                <span class="n">raw_image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">camera_sensor</span><span class="o">.</span><span class="n">get_rgba</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">camera_sensor</span><span class="p">,</span> <span class="s1">&#39;get_rgb&#39;</span><span class="p">):</span>
+                <span class="n">raw_image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">camera_sensor</span><span class="o">.</span><span class="n">get_rgb</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;カメラオブジェクトに画像データ取得メソッドがありません。&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+            <span class="k">if</span> <span class="n">raw_image</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw_image</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;カメラから画像データが取得できませんでした。&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">None</span>
+
+            <span class="c1"># 画像の変換（RGBAからRGB）</span>
+            <span class="k">if</span> <span class="n">raw_image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="n">raw_image_rgb</span> <span class="o">=</span> <span class="n">raw_image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">raw_image_rgb</span> <span class="o">=</span> <span class="n">raw_image</span>
+
+            <span class="c1"># PILイメージに変換します</span>
+            <span class="n">pil_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">raw_image_rgb</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;uint8&#39;</span><span class="p">))</span>
+
+            <span class="c1"># JPEG形式に変換します</span>
+            <span class="n">jpeg_image_io</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+            <span class="n">pil_image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">jpeg_image_io</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;JPEG&quot;</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">jpeg_image_io</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;エラーが発生しました: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">send_jpeg_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sock</span><span class="p">,</span> <span class="n">seq_num</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">ssrc</span><span class="p">,</span> <span class="n">jpeg_data</span><span class="p">,</span> <span class="n">destination_ip</span><span class="p">,</span> <span class="n">destination_port</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        JPEGデータをRTPパケットとして送信します。</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            sock (socket.socket): ソケットオブジェクト</span>
+<span class="sd">            seq_num (int): シーケンス番号</span>
+<span class="sd">            timestamp (int): タイムスタンプ</span>
+<span class="sd">            ssrc (int): SSRC</span>
+<span class="sd">            jpeg_data (bytes): JPEGデータ</span>
+<span class="sd">            destination_ip (str): 送信先のIPアドレス</span>
+<span class="sd">            destination_port (int): 送信先のポート番号</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int: 次のシーケンス番号</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">jpeg_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;エラー: JPEGデータがNoneです。ストリーミングできません。&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">seq_num</span>  <span class="c1"># データがない場合、シーケンス番号を変更せずに返す</span>
+
+        <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span>  <span class="c1"># フレームの幅と高さ</span>
+        <span class="n">total_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">jpeg_data</span><span class="p">)</span>
+
+        <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">first_packet</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="n">MTU_SIZE</span> <span class="o">=</span> <span class="mi">1400</span>  <span class="c1"># ネットワークMTUに基づく適切なサイズ</span>
+        <span class="n">quant_tables</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extract_quantization_tables</span><span class="p">(</span><span class="n">jpeg_data</span><span class="p">)</span>
+        <span class="n">jpeg_raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_sos_marker</span><span class="p">(</span><span class="n">jpeg_data</span><span class="p">)</span>
+
+        <span class="k">while</span> <span class="n">offset</span> <span class="o">&lt;</span> <span class="n">total_size</span><span class="p">:</span>
+            <span class="c1"># 最初のパケットは追加のJPEGヘッダがあるためペイロードサイズを調整</span>
+            <span class="k">if</span> <span class="n">first_packet</span><span class="p">:</span>
+                <span class="n">max_payload_size</span> <span class="o">=</span> <span class="n">MTU_SIZE</span> <span class="o">-</span> <span class="mi">12</span> <span class="o">-</span> <span class="mi">8</span> <span class="o">-</span> <span class="mi">132</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">max_payload_size</span> <span class="o">=</span> <span class="n">MTU_SIZE</span> <span class="o">-</span> <span class="mi">12</span> <span class="o">-</span> <span class="mi">8</span>
+
+            <span class="n">fragment_size</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">max_payload_size</span><span class="p">,</span> <span class="n">total_size</span> <span class="o">-</span> <span class="n">offset</span><span class="p">)</span>
+            <span class="n">is_last_packet</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">+</span> <span class="n">fragment_size</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">total_size</span>
+
+            <span class="c1"># RTPヘッダを作成します</span>
+            <span class="n">rtp_header</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_rtp_jpeg_header</span><span class="p">(</span>
+                <span class="n">seq_num</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">ssrc</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span>
+                <span class="n">first_packet</span><span class="p">,</span> <span class="n">is_last_packet</span><span class="p">,</span> <span class="n">quant_tables</span> <span class="k">if</span> <span class="n">first_packet</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">rtp_header</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;エラー: RTPヘッダの作成に失敗しました。パケットをスキップします。&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">seq_num</span>  <span class="c1"># または適切なエラーハンドリング</span>
+
+            <span class="c1"># RTPペイロードを作成します</span>
+            <span class="n">jpeg_fragment</span> <span class="o">=</span> <span class="n">jpeg_raw</span><span class="p">[</span><span class="n">offset</span><span class="p">:</span><span class="n">offset</span> <span class="o">+</span> <span class="n">fragment_size</span><span class="p">]</span>
+            <span class="n">rtp_packet</span> <span class="o">=</span> <span class="n">rtp_header</span> <span class="o">+</span> <span class="n">jpeg_fragment</span>
+
+            <span class="c1"># RTPパケットを送信します</span>
+            <span class="n">sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">rtp_packet</span><span class="p">,</span> <span class="p">(</span><span class="n">destination_ip</span><span class="p">,</span> <span class="n">destination_port</span><span class="p">))</span>
+
+            <span class="c1"># オフセットとシーケンス番号を更新します</span>
+            <span class="n">offset</span> <span class="o">+=</span> <span class="n">fragment_size</span>
+            <span class="n">seq_num</span> <span class="o">=</span> <span class="p">(</span><span class="n">seq_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">65536</span>  <span class="c1"># シーケンス番号をラップアラウンド</span>
+            <span class="n">first_packet</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="n">seq_num</span>
+
+    <span class="k">def</span> <span class="nf">create_rtp_jpeg_header</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seq_num</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">,</span> <span class="n">ssrc</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">is_first_packet</span><span class="p">,</span> <span class="n">is_last_packet</span><span class="p">,</span> <span class="n">quant_tables</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        JPEGストリーミングのためのRTPヘッダを生成します。</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            seq_num (int): シーケンス番号</span>
+<span class="sd">            timestamp (int): タイムスタンプ</span>
+<span class="sd">            ssrc (int): SSRC</span>
+<span class="sd">            offset (int): オフセット</span>
+<span class="sd">            width (int): 幅</span>
+<span class="sd">            height (int): 高さ</span>
+<span class="sd">            is_first_packet (bool): 最初のパケットかどうか</span>
+<span class="sd">            is_last_packet (bool): 最後のパケットかどうか</span>
+<span class="sd">            quant_tables (list): 量子化テーブル</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bytes: RTPヘッダデータ</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># RTPヘッダ（12バイト）</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">&lt;&lt;</span> <span class="mi">6</span>
+        <span class="n">padding</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">extension</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">csrc_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">is_last_packet</span> <span class="k">else</span> <span class="mi">0</span>
+        <span class="n">payload_type</span> <span class="o">=</span> <span class="mi">26</span>  <span class="c1"># JPEG RTPペイロードタイプ</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">rtp_header</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span>
+                <span class="s1">&#39;!BBHII&#39;</span><span class="p">,</span>
+                <span class="n">version</span> <span class="o">|</span> <span class="n">padding</span> <span class="o">|</span> <span class="n">extension</span> <span class="o">|</span> <span class="n">csrc_count</span><span class="p">,</span>
+                <span class="n">marker</span> <span class="o">&lt;&lt;</span> <span class="mi">7</span> <span class="o">|</span> <span class="n">payload_type</span><span class="p">,</span>
+                <span class="n">seq_num</span><span class="p">,</span>
+                <span class="n">timestamp</span><span class="p">,</span>
+                <span class="n">ssrc</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RTPヘッダの作成中にエラー: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># エラー時はNoneを返す</span>
+
+        <span class="c1"># JPEGヘッダの作成</span>
+        <span class="n">offset_high</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span>
+        <span class="n">offset_mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">offset</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span>
+        <span class="n">offset_low</span> <span class="o">=</span> <span class="n">offset</span> <span class="o">&amp;</span> <span class="mh">0xFF</span>
+        <span class="n">jpeg_width</span> <span class="o">=</span> <span class="p">(</span><span class="n">width</span> <span class="o">//</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span>
+        <span class="n">jpeg_height</span> <span class="o">=</span> <span class="p">(</span><span class="n">height</span> <span class="o">//</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span>
+        <span class="n">type_specific</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="mi">255</span>  <span class="c1"># 品質、デフォルトは255</span>
+
+        <span class="c1"># JPEGヘッダ（8バイト）</span>
+        <span class="n">jpeg_header</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span>
+            <span class="s1">&#39;!BBBBBBBB&#39;</span><span class="p">,</span>
+            <span class="n">type_specific</span><span class="p">,</span>
+            <span class="n">offset_high</span><span class="p">,</span>
+            <span class="n">offset_mid</span><span class="p">,</span>
+            <span class="n">offset_low</span><span class="p">,</span>
+            <span class="mh">0x01</span><span class="p">,</span>  <span class="c1"># JPEGタイプ（ベースラインの場合は常に1）</span>
+            <span class="n">q</span><span class="p">,</span>     <span class="c1"># 品質（量子化テーブル）</span>
+            <span class="n">jpeg_width</span><span class="p">,</span>
+            <span class="n">jpeg_height</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">is_first_packet</span><span class="p">:</span>
+            <span class="c1"># 追加のヘッダ</span>
+            <span class="n">additional_header</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s1">&#39;!BBBB&#39;</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="mh">0x80</span><span class="p">)</span>
+
+            <span class="n">full_header</span> <span class="o">=</span> <span class="n">jpeg_header</span> <span class="o">+</span> <span class="n">additional_header</span>
+
+            <span class="c1"># 最初のパケットの場合、量子化テーブルを追加</span>
+            <span class="k">if</span> <span class="n">quant_tables</span><span class="p">:</span>
+                <span class="n">quant_header</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">quant_tables</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">rtp_header</span> <span class="o">+</span> <span class="n">full_header</span> <span class="o">+</span> <span class="n">quant_header</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">rtp_header</span> <span class="o">+</span> <span class="n">full_header</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">rtp_header</span> <span class="o">+</span> <span class="n">jpeg_header</span>
+
+    <span class="k">def</span> <span class="nf">find_sos_marker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jpeg_data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        JPEGデータ内のStart of Scan (SOS) マーカーを見つけます。</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            jpeg_data (bytes): JPEGデータ</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bytes: SOSマーカー以降のデータ</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sos_marker</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xFF\xDA</span><span class="s1">&#39;</span>  <span class="c1"># SOSマーカー</span>
+        <span class="n">sos_index</span> <span class="o">=</span> <span class="n">jpeg_data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">sos_marker</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">sos_index</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;SOSマーカー (0xFFDA) がJPEGデータ内に見つかりません。&quot;</span><span class="p">)</span>
+
+        <span class="c1"># SOSマーカーの直後からデータが始まります</span>
+        <span class="k">return</span> <span class="n">jpeg_data</span><span class="p">[</span><span class="n">sos_index</span> <span class="o">+</span> <span class="mi">14</span><span class="p">:]</span>
+
+    <span class="k">def</span> <span class="nf">extract_quantization_tables</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jpeg_data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        JPEGデータから量子化テーブルを抽出します。</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            jpeg_data (bytes): JPEGバイナリデータ</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list: 量子化テーブルのリスト</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">quant_tables</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># DQTマーカー（Define Quantization Table）を検索</span>
+        <span class="n">dqt_marker</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xFF\xDB</span><span class="s1">&#39;</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">jpeg_data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">dqt_marker</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">index</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;&gt;H&#39;</span><span class="p">,</span> <span class="n">jpeg_data</span><span class="p">[</span><span class="n">index</span> <span class="o">+</span> <span class="mi">2</span><span class="p">:</span><span class="n">index</span> <span class="o">+</span> <span class="mi">4</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">table_data</span> <span class="o">=</span> <span class="n">jpeg_data</span><span class="p">[</span><span class="n">index</span> <span class="o">+</span> <span class="mi">4</span><span class="p">:</span><span class="n">index</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">length</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span>
+            <span class="n">quant_tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table_data</span><span class="p">)</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">jpeg_data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">dqt_marker</span><span class="p">,</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">quant_tables</span>
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+        <script src="../javascripts/version-select.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
