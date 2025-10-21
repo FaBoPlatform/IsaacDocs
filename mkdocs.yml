@@ -2,18 +2,17 @@ site_name: Isaac SIM Docs
 use_directory_urls: false
 theme:
     name: material
-    custom_dir: 'docs/theme'
+    custom_dir: 'theme'
     language: 'ja'
     palette:
       primary: 'green'
       accent: 'black'
-    #logo: 'logo.png'
+    logo: 'logo.png'
     favicon: 'favicon.png'
 extra:
     search:
         language: 'jp'
 markdown_extensions:
-  - fontawesome_markdown
   - pymdownx.highlight:
       use_pygments: true
       noclasses: false
