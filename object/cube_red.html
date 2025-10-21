@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -1924,18 +1924,18 @@
 <span class="normal">148</span>
 <span class="normal">149</span>
 <span class="normal">150</span>
-<span class="normal">151</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">omni.timeline</span>
-<span class="kn">import</span> <span class="nn">omni.ui</span> <span class="k">as</span> <span class="nn">ui</span>
-<span class="kn">from</span> <span class="nn">omni.isaac.ui.element_wrappers</span> <span class="kn">import</span> <span class="n">CollapsableFrame</span><span class="p">,</span> <span class="n">DropDown</span><span class="p">,</span> <span class="n">FloatField</span><span class="p">,</span> <span class="n">TextBlock</span>
-<span class="kn">from</span> <span class="nn">omni.isaac.ui.ui_utils</span> <span class="kn">import</span> <span class="n">get_style</span>
-<span class="kn">from</span> <span class="nn">omni.isaac.ui.element_wrappers</span> <span class="kn">import</span> <span class="n">Button</span>
-<span class="hll"><span class="kn">from</span> <span class="nn">pxr</span> <span class="kn">import</span> <span class="n">Usd</span><span class="p">,</span> <span class="n">UsdGeom</span><span class="p">,</span> <span class="n">Sdf</span><span class="p">,</span> <span class="n">Gf</span><span class="p">,</span> <span class="n">UsdPhysics</span>
-</span><span class="kn">from</span> <span class="nn">omni.physx.scripts</span> <span class="kn">import</span> <span class="n">physicsUtils</span>
-<span class="kn">import</span> <span class="nn">omni.usd</span>
+<span class="normal">151</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">omni.timeline</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">omni.ui</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ui</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">omni.isaac.ui.element_wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">CollapsableFrame</span><span class="p">,</span> <span class="n">DropDown</span><span class="p">,</span> <span class="n">FloatField</span><span class="p">,</span> <span class="n">TextBlock</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">omni.isaac.ui.ui_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_style</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">omni.isaac.ui.element_wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Button</span>
+<span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">pxr</span><span class="w"> </span><span class="kn">import</span> <span class="n">Usd</span><span class="p">,</span> <span class="n">UsdGeom</span><span class="p">,</span> <span class="n">Sdf</span><span class="p">,</span> <span class="n">Gf</span><span class="p">,</span> <span class="n">UsdPhysics</span>
+</span><span class="kn">from</span><span class="w"> </span><span class="nn">omni.physx.scripts</span><span class="w"> </span><span class="kn">import</span> <span class="n">physicsUtils</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">omni.usd</span>
 
-<span class="k">class</span> <span class="nc">UIBuilder</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">UIBuilder</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;enableの状態だとIsaac SIMが起動した際に1度呼び出される</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># フレームは、複数のUI要素を含むことができるサブウィンドウです</span>
@@ -1950,14 +1950,14 @@
         <span class="c1"># __on_init()を呼び出し</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_on_init</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">on_menu_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_menu_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;ツールバーからUIが開かれたときに呼び出されるコールバック。 </span>
 
 <span class="sd">        これは、build_ui()の直後に呼び出されます。</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;on_menu_callback&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">on_timeline_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_timeline_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;タイムラインイベント（再生、停止、一時停止）のコールバック</span>
 
 <span class="sd">        Args: </span>
@@ -1966,7 +1966,7 @@
         <span class="c1">#print(&quot;on_timeline_event&quot;)</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">on_physics_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_physics_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;物理ステップのコールバック。</span>
 <span class="sd">        物理ステップは、タイムラインが再生されているときにのみ発生します</span>
 
@@ -1976,7 +1976,7 @@
         <span class="c1">#print(&quot;on_physics_step&quot;)</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">on_stage_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_stage_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;ステージイベントのコールバック</span>
 
 <span class="sd">        Args:</span>
@@ -1985,7 +1985,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;event type: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cleanup</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        ステージが閉じられたときや拡張機能がホットリロードされたときに呼び出されます。 </span>
 <span class="sd">        必要なクリーンアップ処理を行い、アクティブなコールバック関数を削除します。 </span>
@@ -1996,7 +1996,7 @@
         <span class="k">for</span> <span class="n">ui_elem</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapped_ui_elements</span><span class="p">:</span>
             <span class="n">ui_elem</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">build_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">build_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        カスタムUIツールを構築して、拡張機能を実行します。</span>
 <span class="sd">        この関数は、UIウィンドウが閉じて再度開かれるたびに呼び出されます。</span>
@@ -2022,7 +2022,7 @@
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">wrapped_ui_elements</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">grandplate_button</span><span class="p">,</span> <span class="n">robot_button</span><span class="p">])</span>
 
-    <span class="k">def</span> <span class="nf">_on_set_groudplane</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_on_set_groudplane</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        ボタンが押されたら呼ばれる</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -2031,7 +2031,7 @@
         <span class="n">omni</span><span class="o">.</span><span class="n">usd</span><span class="o">.</span><span class="n">get_context</span><span class="p">()</span><span class="o">.</span><span class="n">open_stage</span><span class="p">(</span><span class="n">usd_file_path</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;USDシーンがロードされました&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_on_set_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_on_set_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Cubeを追加して剛体を設定し、赤色を適用&quot;&quot;&quot;</span>
         <span class="n">stage</span> <span class="o">=</span> <span class="n">omni</span><span class="o">.</span><span class="n">usd</span><span class="o">.</span><span class="n">get_context</span><span class="p">()</span><span class="o">.</span><span class="n">get_stage</span><span class="p">()</span>
         <span class="n">cube_path</span> <span class="o">=</span> <span class="n">Sdf</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;/World/MyCube&quot;</span><span class="p">)</span>
@@ -2073,7 +2073,7 @@
         <span class="n">omni</span><span class="o">.</span><span class="n">usd</span><span class="o">.</span><span class="n">get_context</span><span class="p">()</span><span class="o">.</span><span class="n">get_stage_view</span><span class="p">()</span><span class="o">.</span><span class="n">invalidate</span><span class="p">()</span>
 
 
-    <span class="k">def</span> <span class="nf">_on_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_on_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;_on_init&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 
@@ -2122,10 +2122,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      <script src="../assets/javascripts/bundle.60a45f97.min.js"></script>
       
         <script src="../javascripts/version-select.js"></script>
       
